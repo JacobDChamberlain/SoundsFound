@@ -43,7 +43,5 @@ router.get('/', restoreUser, (req, res) => {
   } else return res.json({});
 });
 
-// Jew4GhVZ-DsNPbsz7DdY3WsYClXLd44sGVrA
-
 
 module.exports = router;
