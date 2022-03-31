@@ -33,6 +33,17 @@ router.delete('/', (_req, res) => {
 });
 
 
+// Restore session user:
+router.get('/', restoreUser, (req, res) => {
+  const { user } = req;
+  if (user) {
+    return res.json({
+      user: user.toSafeObject()
+    });
+  } else return res.json({});
+});
+
+// Jew4GhVZ-DsNPbsz7DdY3WsYClXLd44sGVrA
 
 
 module.exports = router;

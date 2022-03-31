@@ -16,6 +16,6 @@ router.post('/', asyncHandler(async (req, res) => {
   return res.json({ user });
 }));
 
-// uAZAfScG-UcWxuNIA4OzIssv-U78TrSzPUy0
+
 
 module.exports = router;
