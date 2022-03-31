@@ -14,7 +14,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.json());
-app.use(routes);
+
 
 
 // Security Middleware:
@@ -40,5 +40,7 @@ app.use(
     }
   })
 );
+
+app.use(routes);
 
 module.exports = app;
