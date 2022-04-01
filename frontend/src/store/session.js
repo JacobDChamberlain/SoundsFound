@@ -25,7 +25,9 @@ export const removeSessionUser = () => {
 // (takes in an object with a credential key with the value set to either the user's email or username,
 // as well as a password key with the value set to the user's password)
 export const login  = (user) => async(dispatch) => {
+
   const { credential, password } = user;
+
   const res = await csrfFetch('/api/session', {
     method: "POST",
     body: JSON.stringify({
@@ -34,12 +36,23 @@ export const login  = (user) => async(dispatch) => {
     })
   });
 
-  if (res.ok) {
-    const data = await res.json();
+  const data = await res.json();
 
-    dispatch(setSessionUser(data.user));
-    return res;
-  }
+  dispatch(setSessionUser(data.user));
+
+  return res;
+};
+
+// thunk action creator: (restore user)
+export const restoreUser = () => async dispatch => {
+
+  const res = await csrfFetch('/api/session');
+
+  const data = await res.json();
+
+  dispatch(setSessionUser(data.user));
+
+  return res;
 };
 
 
