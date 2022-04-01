@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+import './LoginForm.css';
+
 import * as sessionActions from '../../store/session';
 
 function LoginFormPage() {
@@ -29,30 +31,42 @@ function LoginFormPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label>
-        Username or Email...Whatever you got is cool
-        <input
-          type="text"
-          value={credential}
-          onChange={e => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <>
+    <h1>Log the fuck in lets make some noise</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="login-form"
+      >
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
+        <label>
+          Username or Email...<br />Whatever you got is cool: {' '}
+          <input
+            type="text"
+            value={credential}
+            onChange={e => setCredential(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Password: {' '}
+          <input
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
+        </label>
+        <button
+          type="submit"
+          className='login-button'
+        >
+          Log In
+        </button>
+      </form>
+    </>
+
   );
 }
 
