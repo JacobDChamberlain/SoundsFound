@@ -14,10 +14,9 @@ export const setSessionUser = (user) => {
 };
 
 // regular action creator: (remove session user)
-export const removeSessionUser = (user) => {
+export const removeSessionUser = () => {
   return {
     type: REMOVE_SESSION_USER,
-    user
   }
 };
 
@@ -26,17 +25,20 @@ export const removeSessionUser = (user) => {
 // (takes in an object with a credential key with the value set to either the user's email or username,
 // as well as a password key with the value set to the user's password)
 export const login  = (user) => async(dispatch) => {
-  
+  const { credential, password } = user;
   const res = await csrfFetch('/api/session', {
     method: "POST",
-    body: JSON.stringify(user)
+    body: JSON.stringify({
+      credential,
+      password
+    })
   });
 
   if (res.ok) {
-    const user = await res.json();
+    const data = await res.json();
 
-    dispatch(setSessionUser(user));
-    return user;
+    dispatch(setSessionUser(data.user));
+    return res;
   }
 };
 
@@ -54,7 +56,7 @@ const sessionReducer = (state = initialState, action) => {
       return newState;
     case REMOVE_SESSION_USER:
       newState = {...state};
-      // TODO - remove session user
+      newState.user = null;
       return newState;
     default:
       return state;
