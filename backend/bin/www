@@ -5,7 +5,7 @@ const { port } = require('../config');
 const app = require('../app');
 const db = require('../db/models');
 
-// Check the connection to the database before lighting this motherfucker:
+// Check the connection to the database before starting server:
 db.sequelize
   .authenticate()
   .then(() => {
