@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   Song.associate = function(models) {
-    // Song.belongsTo(models.User, { foreignKey: 'userId' });
+    Song.belongsTo(models.User, { foreignKey: 'userId' });
   };
   return Song;
 };
