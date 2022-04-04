@@ -19,7 +19,7 @@ router.get('/', asyncHandler(async (req, res) => {
 
   const songs = await Song.findAll()
 
-  return res.json({ songs });
+  return res.json(songs);
 }));
 
 
@@ -30,7 +30,7 @@ router.get('/:songId', asyncHandler(async (req, res) => {
 
   const song = await Song.findByPk(songId);
 
-  return res.json({ song });
+  return res.json(song);
 }));
 
 
