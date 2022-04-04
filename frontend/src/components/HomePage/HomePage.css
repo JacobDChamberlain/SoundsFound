@@ -1,0 +1,10 @@
+li {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(198,208,250,98);
+  align-items: center;
+  font-family: interstate, sans-serif;
+  font-style: italicnormal;
+  font-weight: 100;
+  text-align: center;
+}
