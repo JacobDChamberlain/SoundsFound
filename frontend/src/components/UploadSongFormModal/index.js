@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Modal } from '../../context/Modal';
-// import LoginForm from "./LoginForm";
+import UploadSongForm from "./UploadSongForm";
 
 function UploadSongFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Log In</button>
+      <button onClick={() => setShowModal(true)}>Upload</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          {/* <LoginForm /> */}
+          <UploadSongForm />
         </Modal>
       )}
     </>
