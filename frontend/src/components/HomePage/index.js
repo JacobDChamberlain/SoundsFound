@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactPlayer from 'react-player/lazy';
+import UploadSongFormModal from '../UploadSongFormModal';
 import * as songActions from '../../store/songs';
 import './HomePage.css';
 
@@ -20,18 +21,19 @@ function HomePage() {
 
 
   return (
-    <ul>
-      {allSongsArray.map(song => (
-        <li key={song.id}>
-          <h2>{song.title}</h2>
-          <div>User: {song.userId}</div>
-          <div>Playlist: {song.playlistId}</div>
-          <div>Url: <a href={song.url}>Link</a></div>
-          <ReactPlayer url={song.url} />
-        </li>
-      ))}
-    </ul>
-
+    <>
+    <UploadSongFormModal className="upload-song-modal" />
+      <ul>
+        {allSongsArray.map(song => (
+          <li key={song.id}>
+            <h2>{song.title}</h2>
+            <div>User: {song.userId}</div>
+            <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
+            <ReactPlayer url={song.url} />
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 

@@ -8,3 +8,8 @@ li {
   font-weight: 100;
   text-align: center;
 }
+
+.upload-song-modal {
+  display: flex;
+  justify-content: center;
+}
