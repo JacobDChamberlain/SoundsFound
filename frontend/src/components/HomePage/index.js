@@ -22,7 +22,9 @@ function HomePage() {
 
   return (
     <>
-    <UploadSongFormModal className="upload-song-modal" />
+    <div className="upload-song-modal">
+      <UploadSongFormModal />
+    </div>
       <ul>
         {allSongsArray.map(song => (
           <li key={song.id}>
