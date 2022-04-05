@@ -11,6 +11,7 @@ function EditSongForm({ song }) {
 
   const userId = sessionUser.id;
   const url = song.url;
+  const id = song.id;
   const [title, setTitle] = useState('');
   const [errors, setErrors] = useState([]);
 
@@ -24,7 +25,7 @@ function EditSongForm({ song }) {
 
     e.preventDefault();
 
-    const song = { userId, url, title };
+    const song = { id, userId, url, title };
 
     setErrors([]);
     return dispatch(songActions.edit(song))
@@ -37,8 +38,8 @@ function EditSongForm({ song }) {
   }
 
   return (
-    <>
-      <h1>Edit</h1>
+    <div className='edit-song-div'>
+      <h1>Need to change the title of {song.title}?</h1>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
@@ -62,7 +63,7 @@ function EditSongForm({ song }) {
           Confirm Changes
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

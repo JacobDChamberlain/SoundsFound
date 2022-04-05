@@ -30,10 +30,12 @@ function HomePage() {
             <h2>{song.title}</h2>
             <div>User: {song.userId}</div>
             <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
-            <ReactPlayer url={song.url} />
-            <div hidden={song.userId !== sessionUser.id ? true : false}>
+            <ReactPlayer controls url={song.url} />
+            {sessionUser && (
+              <div hidden={song.userId !== sessionUser.id ? true : false}>
               <EditSongFormModal song={song} />
-            </div>
+              </div>
+            )}
           </li>
         ))}
       </ul>

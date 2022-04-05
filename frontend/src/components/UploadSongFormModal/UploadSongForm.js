@@ -39,7 +39,7 @@ function UploadSongForm() {
   }
 
   return (
-    <>
+    <div className="upload-song-div">
       <h1>Give us your tunes, brah</h1>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -73,7 +73,7 @@ function UploadSongForm() {
           Upload
         </button>
       </form>
-    </>
+    </div>
   );
 }
 
