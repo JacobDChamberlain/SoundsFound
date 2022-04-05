@@ -8,10 +8,19 @@ const { Song } = require('../../db/models');
 const router = express.Router();
 
 
-// const validateUploadSong = [
-//   // TODO - validate song upload form fields
-//   , handleValidationErrors
-// ];
+const validateUploadSong = [
+  check('url')
+    .exists({ checkFalsy: true })
+    .isURL()
+    .withMessage("Please provide a valid URL."),
+  check('title')
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a title."),
+  check('title')
+    .isLength({ max: 150 })
+    .withMessage("Please keep title under 150 characters."),
+  handleValidationErrors
+];
 
 
 // Get all songs (READ):
@@ -35,7 +44,7 @@ router.get('/:songId', asyncHandler(async (req, res) => {
 
 
 // Upload a song: (CREATE):
-router.post('/', asyncHandler(async (req, res) => {
+router.post('/', validateUploadSong, asyncHandler(async (req, res) => {
 
   const { userId, url, title } = req.body;
 
