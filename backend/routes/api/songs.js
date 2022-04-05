@@ -24,6 +24,8 @@ const validateUploadSong = [
   handleValidationErrors
 ];
 
+// TODO - create edit song validators
+
 
 // Get all songs (READ):
 router.get('/', asyncHandler(async (req, res) => {
@@ -59,28 +61,33 @@ router.post('/', validateUploadSong, asyncHandler(async (req, res) => {
 
 
 // Edit a song (UPDATE):
-// router.put('/', validateUploadSong, asyncHandler(async (req, res) => {
+router.put('/:songId', asyncHandler(async (req, res) => {
 
-//   const { userId, url, title } = req.body;
+  const songId = req.params.songId;
 
-//   const song = await Song.create({
-//     userId, url, title
-//   });
+  const song = await Song.findByPk(songId);
 
-//   return res.json({ song });
-// }));
+  const { title } = req.body;
+
+  await song.update({
+    title
+  });
+
+  return res.json({ song });
+}));
 
 
 // Remove a song (DELETE):
 router.delete('/:songId', asyncHandler(async (req, res) => {
 
-  const { songId } = req.params.songId;
+  const songId = req.params.songId;
 
   const song = await Song.findByPk(songId);
 
   await song.delete();
 
-  return res.json({ "message": "song deleted. beep boop." }); // TODO - redirect user to home page
+  return res.json({ "message": "song deleted. beep boop." });
+  // TODO - redirect user to home page
 }));
 
 
