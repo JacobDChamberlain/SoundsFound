@@ -102,9 +102,9 @@ const songsReducer = (state = initialState, action) => {
       newState = {...state};
       newState[action.song.id] = action.song;
       return newState;
-    case EDIT_SONG:
+    case EDIT_SONG: //* consider refactoring action creators *
       newState = {...state};
-      newState[action.song.id] = action.song;
+      newState[action.song.song.id] = action.song.song;
       return newState;
     default:
       return state;

@@ -21,7 +21,7 @@ function EditSongForm({ song }) {
     setErrors(errors);
   }, [title]);
 
-  const handleUpload = e => {
+  const handleEdit = e => {
 
     e.preventDefault();
 
@@ -44,7 +44,7 @@ function EditSongForm({ song }) {
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
       <form
-      onSubmit={handleUpload}
+      onSubmit={handleEdit}
       className="edit-song-form"
       >
         <label>

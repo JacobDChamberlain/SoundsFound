@@ -19,6 +19,8 @@ function HomePage() {
 
   const allSongsArray = Object.values(allSongs);
 
+  // TODO - display username of the one who posted the song instead of id by song.userId
+
   return (
     <>
       <div className="upload-song-modal">
