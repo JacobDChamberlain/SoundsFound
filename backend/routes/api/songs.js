@@ -20,11 +20,19 @@ const validateUploadSong = [
     .withMessage("Please provide a title."),
   check('title')
     .isLength({ max: 150 })
-    .withMessage("Please keep title under 150 characters."),
+    .withMessage("Song titles must be under 150 characters."),
   handleValidationErrors
 ];
 
-// TODO - create edit song validators
+const validateEditSong = [
+  check('title')
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide your new title."),
+  check('title')
+    .isLength({ max: 150 })
+    .withMessage("Song titles must be under 150 characters."),
+  handleValidationErrors
+];
 
 
 // Get all songs (READ):
@@ -61,7 +69,7 @@ router.post('/', validateUploadSong, asyncHandler(async (req, res) => {
 
 
 // Edit a song (UPDATE):
-router.put('/:songId', asyncHandler(async (req, res) => {
+router.put('/:songId', validateEditSong, asyncHandler(async (req, res) => {
 
   const songId = req.params.songId;
 
