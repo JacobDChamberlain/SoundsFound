@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as songActions from '../../store/songs';
 import './UploadSongForm.css';
@@ -12,7 +12,14 @@ function UploadSongForm() {
   const userId = sessionUser.id;
   const [url, setUrl] = useState('');
   const [title, setTitle] = useState('');
-  // const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    const errors = [];
+    if (url.length < 1) errors.push("Please enter a url");
+    if (title.length > 150) errors.push("Title must be under 150 characters");
+    setErrors(errors);
+  }, [url, title]);
 
   const handleUpload = e => {
 
@@ -20,14 +27,23 @@ function UploadSongForm() {
 
     const song = { userId, url, title };
 
-    dispatch(songActions.upload(song));
+    // dispatch(songActions.upload(song));
+    setErrors([]);
+    return dispatch(songActions.upload(song))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
 
-    // TODO - redirect to home page
+    // TODO - close modal
   }
 
   return (
     <>
       <h1>Give us your tunes, brah</h1>
+      <ul>
+        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+      </ul>
       <form
       onSubmit={handleUpload}
       className="upload-song-form"
