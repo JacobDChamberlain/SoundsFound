@@ -25,10 +25,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/">
-            <>
-            <ReactPlayer url="https://www.youtube.com/watch?v=6rdiaR0PjL0" />
             <HomePage />
-            </>
           </Route>
           <Route path="/signup">
             <SignupFormPage />
