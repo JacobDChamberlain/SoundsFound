@@ -9,7 +9,7 @@ function UploadSongForm() {
 
   const sessionUser = useSelector(state => state.session.user);
 
-  const [userId, setUserId] = useState(1);
+  const userId = sessionUser.id;
   const [url, setUrl] = useState('');
   const [title, setTitle] = useState('');
   // const [errors, setErrors] = useState([]);
@@ -17,8 +17,6 @@ function UploadSongForm() {
   const handleUpload = e => {
 
     e.preventDefault();
-
-    setUserId(sessionUser.id);
 
     const song = { userId, url, title };
 
