@@ -14,11 +14,8 @@ function HomePage() {
   }, [dispatch]);
 
   const allSongs = useSelector(state => state.songs);
-  console.log("allsongs = useSelector(state=>state.songs) -->", allSongs)
 
   const allSongsArray = Object.values(allSongs);
-  console.log("allSongsArray = Object.values(allsongs)", allSongsArray);
-
 
   return (
     <>
