@@ -36,6 +36,7 @@ function HomePage() {
             {sessionUser && (
               <div hidden={song.userId !== sessionUser.id ? true : false}>
               <EditSongFormModal song={song} />
+              <button onClick={() => dispatch(songActions.remove(song))}>Delete</button>
               </div>
             )}
           </li>

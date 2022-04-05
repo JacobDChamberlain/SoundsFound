@@ -92,10 +92,9 @@ router.delete('/:songId', asyncHandler(async (req, res) => {
 
   const song = await Song.findByPk(songId);
 
-  await song.delete();
+  await song.destroy();
 
   return res.json({ "message": "song deleted. beep boop." });
-  // TODO - redirect user to home page
 }));
 
 

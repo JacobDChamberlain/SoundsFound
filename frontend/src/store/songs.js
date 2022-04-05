@@ -4,6 +4,7 @@ const LOAD_ALL_SONGS = 'soundsfound/songs/LOAD_ALL_SONGS';
 const LOAD_ONE_SONG = 'soundsfound/songs/LOAD_ONE_SONG';
 const UPLOAD_SONG = 'soundsfound/songs/UPLOAD_SONG';
 const EDIT_SONG = 'soundsfound/songs/EDIT_SONG';
+const DELETE_SONG = 'soundsfound/songs/DELETE_SONG';
 
 // action creator to load all the songs:
 const loadAll = songs => ({
@@ -27,6 +28,12 @@ const uploadSong = song => ({
 // action creator to edit a song:
 const editSong = song => ({
   type: EDIT_SONG,
+  song
+});
+
+// action creator to delete a song:
+const deleteSong = song => ({
+  type: DELETE_SONG,
   song
 });
 
@@ -82,6 +89,17 @@ export const edit = (song) => async dispatch => {
   }
 }
 
+export const remove = (song) => async dispatch => {
+
+  const res = await csrfFetch(`/api/songs/${song.id}`, {
+    method: "DELETE"
+  });
+
+  if (res.ok) {
+    dispatch(deleteSong(song));
+  }
+}
+
 
 
 const initialState = {};
@@ -105,6 +123,10 @@ const songsReducer = (state = initialState, action) => {
     case EDIT_SONG: //* consider refactoring action creators *
       newState = {...state};
       newState[action.song.song.id] = action.song.song;
+      return newState;
+    case DELETE_SONG:
+      newState = {...state};
+      delete newState[action.song.id];
       return newState;
     default:
       return state;
