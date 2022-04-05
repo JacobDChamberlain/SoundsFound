@@ -20,7 +20,9 @@ function UploadSongForm() {
 
     setUserId(sessionUser.id);
 
-    // dispatch(songActions.upload({ userId, url, title }));
+    const song = { userId, url, title };
+
+    dispatch(songActions.upload(song));
 
     // TODO - redirect to home page
   }

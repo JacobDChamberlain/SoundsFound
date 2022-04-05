@@ -5,6 +5,7 @@ import ReactPlayer from 'react-player/lazy';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
+import UploadSongFormModal from './components/UploadSongFormModal';
 import * as sessionActions from './store/session';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      <UploadSongFormModal />
       {isLoaded && (
         <Switch>
           <Route exact path="/">
