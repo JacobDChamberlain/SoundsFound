@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const LOAD_ALL_SONGS = 'soundsfound/songs/LOAD_ALL_SONGS';
 const LOAD_ONE_SONG = 'soundsfound/songs/LOAD_ONE_SONG';
 const UPLOAD_SONG = 'soundsfound/songs/UPLOAD_SONG';
+const EDIT_SONG = 'soundsfound/songs/EDIT_SONG';
 
 // action creator to load all the songs:
 const loadAll = songs => ({
@@ -23,11 +24,17 @@ const uploadSong = song => ({
   song
 });
 
+// action creator to edit a song:
+const editSong = song => ({
+  type: EDIT_SONG,
+  song
+});
+
 
 // thunk action creator to fetch all songs from backend api:
 export const getAllSongs = () => async dispatch => {
 
-  const res = await csrfFetch('/api/songs');
+  const res = await fetch('/api/songs');
 
   const songs = await res.json();
 
@@ -38,7 +45,7 @@ export const getAllSongs = () => async dispatch => {
 // thunk action creator to fetch one song from backend api:
 export const getOneSong = (songId) => async dispatch => {
 
-  const res = await csrfFetch(`/api/songs/${songId}`);
+  const res = await fetch(`/api/songs/${songId}`);
 
   const song = await res.json();
 
@@ -61,6 +68,20 @@ export const upload = (song) => async dispatch => {
   }
 }
 
+export const edit = (song) => async dispatch => {
+
+  const res = await csrfFetch(`/api/songs/${song.id}`, {
+    method: "PUT",
+    body: JSON.stringify(song)
+  })
+
+  if (res.ok) {
+    const song = await res.json();
+    dispatch(editSong(song))
+    return song;
+  }
+}
+
 
 
 const initialState = {};
@@ -78,6 +99,10 @@ const songsReducer = (state = initialState, action) => {
       newState = {...state, ...allSongs};
       return newState;
     case UPLOAD_SONG:
+      newState = {...state};
+      newState[action.song.id] = action.song;
+      return newState;
+    case EDIT_SONG:
       newState = {...state};
       newState[action.song.id] = action.song;
       return newState;

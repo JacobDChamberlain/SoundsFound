@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactPlayer from 'react-player/lazy';
 import UploadSongFormModal from '../UploadSongFormModal';
+import EditSongFormModal from '../EditSongFormModal';
 import * as songActions from '../../store/songs';
 import './HomePage.css';
 
@@ -14,14 +15,15 @@ function HomePage() {
   }, [dispatch]);
 
   const allSongs = useSelector(state => state.songs);
+  const sessionUser = useSelector(state => state.session.user);
 
   const allSongsArray = Object.values(allSongs);
 
   return (
     <>
-    <div className="upload-song-modal">
-      <UploadSongFormModal />
-    </div>
+      <div className="upload-song-modal">
+        <UploadSongFormModal />
+      </div>
       <ul>
         {allSongsArray.map(song => (
           <li key={song.id}>
@@ -29,6 +31,9 @@ function HomePage() {
             <div>User: {song.userId}</div>
             <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
             <ReactPlayer url={song.url} />
+            <div hidden={song.userId !== sessionUser.id ? true : false}>
+              <EditSongFormModal song={song} />
+            </div>
           </li>
         ))}
       </ul>
