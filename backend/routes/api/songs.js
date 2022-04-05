@@ -11,6 +11,8 @@ const router = express.Router();
 const validateUploadSong = [
   check('url')
     .exists({ checkFalsy: true })
+    .withMessage("Please provide a url for your song."),
+  check('url')
     .isURL()
     .withMessage("Please provide a valid URL."),
   check('title')
