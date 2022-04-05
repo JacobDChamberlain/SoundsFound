@@ -63,7 +63,7 @@ export const restoreUser = () => async dispatch => {
 // thunk action creator: (signup)
 export const signup = (user) => async (dispatch) => {
 
-  const { username, email, password }= user;
+  const { username, email, password } = user;
 
   const res = await csrfFetch('/api/users', {
     method: "POST",

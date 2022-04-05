@@ -8,10 +8,10 @@ const { Song } = require('../../db/models');
 const router = express.Router();
 
 
-const validateUploadSong = [
-  // TODO - validate song upload form fields
-  , handleValidationErrors
-];
+// const validateUploadSong = [
+//   // TODO - validate song upload form fields
+//   , handleValidationErrors
+// ];
 
 
 // Get all songs (READ):
@@ -35,16 +35,16 @@ router.get('/:songId', asyncHandler(async (req, res) => {
 
 
 // Upload a song: (CREATE):
-// router.post('/', validateUploadSong, asyncHandler(async (req, res) => {
+router.post('/', asyncHandler(async (req, res) => {
 
-//   const { userId, url, title } = req.body;
+  const { userId, url, title } = req.body;
 
-//   const song = await Song.create({
-//     userId, url, title
-//   });
+  const song = await Song.create({
+    userId, url, title
+  });
 
-//   return res.json({ song });
-// }));
+  return res.json(song);
+}));
 
 
 // Edit a song (UPDATE):
