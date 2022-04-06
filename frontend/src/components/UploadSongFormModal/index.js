@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from '../../context/Modal';
+import { MdFileUpload } from 'react-icons/md';
 import UploadSongForm from "./UploadSongForm";
 
 function UploadSongFormModal() {
@@ -7,7 +8,9 @@ function UploadSongFormModal() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Upload</button>
+    <div className="upload-icon-outer-div">
+      <MdFileUpload onClick={() => setShowModal(true)}>Upload</MdFileUpload>
+    </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <UploadSongForm closeModal={setShowModal} />
