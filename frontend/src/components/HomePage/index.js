@@ -31,7 +31,7 @@ function HomePage() {
           {allSongsArray.map(song => (
             <li key={song.id}>
               <h2>{song.title}</h2>
-              <div>User: {song.userId}</div>
+              <div>User: {song.User.username}</div>
               <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
               <ReactPlayer controls url={song.url} />
               {sessionUser && (
