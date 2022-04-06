@@ -1,7 +1,7 @@
 li {
   display: flex;
   flex-direction: column;
-  background-color: rgba(198,250,237,98);
+  /* background-color: rgba(198,250,237,98); */
   align-items: center;
   font-family: interstate, sans-serif;
   font-style: italicnormal;
@@ -9,14 +9,3 @@ li {
   text-align: center;
 }
 
-/* uncommenting makes the page break in a kind of cool stylistic way */
-/* div {
-  display: flex;
-  background-color: rgba(175,221,222,87);
-  width: 23.6%;
-  justify-content: center;
-  align-items: center;
-  font-family: interstate, sans-serif;
-  font-style: italicnormal;
-  font-weight: 100;
-} */
