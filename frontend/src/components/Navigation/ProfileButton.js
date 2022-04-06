@@ -33,7 +33,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <div className="hello" onClick={openMenu}>
+      <div className="profile-icon-outer-div" onClick={openMenu}>
         <RiAliensFill />
       </div>
       {showMenu && (
