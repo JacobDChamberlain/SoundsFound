@@ -22,7 +22,10 @@ function HomePage() {
 
   return (
     <>
-      <h2 className='home-page-header'>[soundsfound]</h2>
+    <div className='home-page-header'>
+      <h2 className='home-page-h2'>[soundsfound]</h2>
+      <h3 className='home-page-h3'>a place to find [sounds]</h3>
+    </div>
       {sessionUser && (
         <ul>
           {allSongsArray.map(song => (

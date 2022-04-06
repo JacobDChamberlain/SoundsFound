@@ -16,6 +16,10 @@ li {
 
 .home-page-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: interstate, sans-serif;
+  font-style: italicnormal;
+  background-color: rgba(175,196,222,87);
 }
