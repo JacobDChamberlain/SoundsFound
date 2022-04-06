@@ -28,11 +28,8 @@ function EditSongForm({ song, closeModal }) {
     const song = { id, userId, url, title };
 
     setErrors([]);
-    dispatch(songActions.edit(song))
-      .catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      });
+    dispatch(songActions.edit(song));
+    
     closeModal(false);
   }
 

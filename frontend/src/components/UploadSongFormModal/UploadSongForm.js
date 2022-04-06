@@ -29,13 +29,8 @@ function UploadSongForm({ closeModal }) {
 
     // dispatch(songActions.upload(song));
     setErrors([]);
-    dispatch(songActions.upload(song))
-      .catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      });
+    dispatch(songActions.upload(song));
 
-    // TODO - close modal
     closeModal();
   }
 
