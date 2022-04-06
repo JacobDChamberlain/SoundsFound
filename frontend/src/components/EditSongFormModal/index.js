@@ -10,7 +10,7 @@ function EditSongFormModal({ song }) {
       <button className="edit-song-modal" onClick={() => setShowModal(true)}>Edit</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditSongForm song={song} />
+          <EditSongForm song={song} closeModal={setShowModal} />
         </Modal>
       )}
     </>

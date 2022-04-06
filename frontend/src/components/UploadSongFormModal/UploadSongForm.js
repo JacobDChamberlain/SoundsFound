@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as songActions from '../../store/songs';
 import './UploadSongForm.css';
 
-function UploadSongForm() {
+function UploadSongForm({ closeModal }) {
 
   const dispatch = useDispatch();
 
@@ -29,13 +29,14 @@ function UploadSongForm() {
 
     // dispatch(songActions.upload(song));
     setErrors([]);
-    return dispatch(songActions.upload(song))
+    dispatch(songActions.upload(song))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
 
     // TODO - close modal
+    closeModal();
   }
 
   return (

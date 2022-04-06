@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as songActions from '../../store/songs';
 import './EditSongForm.css';
 
-function EditSongForm({ song }) {
+function EditSongForm({ song, closeModal }) {
 
   const dispatch = useDispatch();
 
@@ -28,13 +28,13 @@ function EditSongForm({ song }) {
     const song = { id, userId, url, title };
 
     setErrors([]);
-    return dispatch(songActions.edit(song))
+    dispatch(songActions.edit(song))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
 
-    // TODO - close modal
+    closeModal(false);
   }
 
   return (
