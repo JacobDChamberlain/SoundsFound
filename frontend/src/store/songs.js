@@ -116,6 +116,10 @@ const songsReducer = (state = initialState, action) => {
       });
       newState = {...state, ...allSongs};
       return newState;
+    case LOAD_ONE_SONG:
+      newState = {};
+      newState[action.song.id] = action.song;
+      return newState;
     case UPLOAD_SONG:
       newState = {...state};
       newState[action.song.id] = action.song;
