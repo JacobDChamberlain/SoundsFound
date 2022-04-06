@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import { useDispatch } from "react-redux";
+import { RiAliensFill } from 'react-icons/ri'
 import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
@@ -33,7 +34,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu}>
-        <i className="fa-solid fa-alien">i should be a picture of an alien</i>
+        <RiAliensFill />
       </button>
       {showMenu && (
         <ul className="profile-dropdown">

@@ -1,11 +1,5 @@
-li {
+.profile-dropdown {
   display: flex;
   flex-direction: column;
-  /* background-color: rgba(198,250,237,98); */
-  align-items: center;
-  font-family: interstate, sans-serif;
-  font-style: italicnormal;
-  font-weight: 100;
-  text-align: center;
+  align-items: flex-end;
 }
-
