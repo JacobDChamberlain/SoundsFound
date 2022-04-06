@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
+import UploadSongFormModal from '../UploadSongFormModal';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -28,6 +29,9 @@ function Navigation({ isLoaded }) {
       <li>
         <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
+        {sessionUser && (
+          <UploadSongFormModal />
+        )}
       </li>
     </ul>
   );

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactPlayer from 'react-player/youtube';
-import UploadSongFormModal from '../UploadSongFormModal';
 import EditSongFormModal from '../EditSongFormModal';
 import * as songActions from '../../store/songs';
 import './HomePage.css';
@@ -23,9 +22,6 @@ function HomePage() {
 
   return (
     <>
-      <div className="upload-song-modal">
-        <UploadSongFormModal />
-      </div>
       <ul>
         {allSongsArray.map(song => (
           <li key={song.id}>
