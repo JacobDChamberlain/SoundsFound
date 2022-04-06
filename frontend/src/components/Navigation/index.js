@@ -25,15 +25,17 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-        {sessionUser && (
-          <UploadSongFormModal />
-        )}
-      </li>
-    </ul>
+    <nav className='nav-bar'>
+      <ul className='nav-links'>
+        <li>
+          <NavLink exact to="/">Home</NavLink>
+          {isLoaded && sessionLinks}
+          {sessionUser && (
+            <UploadSongFormModal />
+          )}
+        </li>
+      </ul>
+    </nav>
   );
 }
 

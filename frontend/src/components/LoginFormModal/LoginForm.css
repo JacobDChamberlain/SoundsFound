@@ -19,3 +19,9 @@
   font-style: italicnormal;
   font-weight: 100;
 }
+
+.login-form-h1 {
+  background-color: rgba(198,208,250,98);
+  font-family: interstate, sans-serif;
+  font-style: italicnormal;
+}

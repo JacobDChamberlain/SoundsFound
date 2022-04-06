@@ -22,10 +22,10 @@ function HomePage() {
 
   return (
     <>
-    <div className='home-page-header'>
-      <h2 className='home-page-h2'>[soundsfound]</h2>
-      <h3 className='home-page-h3'>a place to find [sounds]</h3>
-    </div>
+      <div className='home-page-header'>
+        <h2 className='home-page-h2'>[soundsfound]</h2>
+        <h3 className='home-page-h3'>a place to find [sounds]</h3>
+      </div>
       {sessionUser && (
         <ul>
           {allSongsArray.map(song => (
@@ -44,7 +44,22 @@ function HomePage() {
           ))}
         </ul>
       )}
-
+      <div className='home-page-footer'>
+        <ul className='tech-used'>
+          <li>
+            React
+          </li>
+          <li>
+            Redux
+          </li>
+          <li>
+            Express
+          </li>
+          <li>
+            Sequelize
+          </li>
+        </ul>
+      </div>
     </>
   );
 }

@@ -33,7 +33,7 @@ function SignupFormPage() {
 
   return (
     <>
-      <h1>Sign up {'&'} get in here!</h1>
+      <h1 className='signup-form-h1'>Sign up {'&'} get in here!</h1>
       <form
         onSubmit={handleSubmit}
         className="signup-form"

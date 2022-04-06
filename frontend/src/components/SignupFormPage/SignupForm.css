@@ -19,3 +19,11 @@
   font-style: italicnormal;
   font-weight: 100;
 }
+
+.signup-form-h1 {
+  display: flex;
+  justify-content: center;
+  font-family: interstate, sans-serif;
+  font-style: italicnormal;
+  background-color: rgba(175,221,222,87);
+}
