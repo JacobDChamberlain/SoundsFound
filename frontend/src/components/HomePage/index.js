@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ReactPlayer from 'react-player/youtube';
+import ReactPlayer from 'react-player/soundcloud';
 import EditSongFormModal from '../EditSongFormModal';
 import * as songActions from '../../store/songs';
 import './HomePage.css';
