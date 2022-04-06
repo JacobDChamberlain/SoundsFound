@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ReactPlayer from 'react-player/lazy';
+import ReactPlayer from 'react-player/youtube';
 import UploadSongFormModal from '../UploadSongFormModal';
 import EditSongFormModal from '../EditSongFormModal';
 import * as songActions from '../../store/songs';
@@ -32,7 +32,7 @@ function HomePage() {
             <h2>{song.title}</h2>
             <div>User: {song.userId}</div>
             <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
-            <ReactPlayer controls url={song.url} />
+            <ReactPlayer controls width="300px" height="300px" url={song.url} />
             {sessionUser && (
               <div hidden={song.userId !== sessionUser.id ? true : false}>
               <EditSongFormModal song={song} />
