@@ -13,3 +13,21 @@ li {
   display: flex;
   justify-content: center;
 }
+
+.home-page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: interstate, sans-serif;
+  font-style: italicnormal;
+  background-color: rgba(175,196,222,87);
+  height: 600px;
+}
+
+.tech-used {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(198,208,250,98);
+}

@@ -22,22 +22,44 @@ function HomePage() {
 
   return (
     <>
-      <ul>
-        {allSongsArray.map(song => (
-          <li key={song.id}>
-            <h2>{song.title}</h2>
-            <div>User: {song.userId}</div>
-            <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
-            <ReactPlayer controls width="300px" height="300px" url={song.url} />
-            {sessionUser && (
-              <div hidden={song.userId !== sessionUser.id ? true : false}>
-              <EditSongFormModal song={song} />
-              <button onClick={() => dispatch(songActions.remove(song))}>Delete</button>
-              </div>
-            )}
+      <div className='home-page-header'>
+        <h2 className='home-page-h2'>[soundsfound]</h2>
+        <h3 className='home-page-h3'>a place to find [sounds]</h3>
+      </div>
+      {sessionUser && (
+        <ul>
+          {allSongsArray.map(song => (
+            <li key={song.id}>
+              <h2>{song.title}</h2>
+              <div>User: {song.userId}</div>
+              <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
+              <ReactPlayer controls width="300px" height="300px" url={song.url} />
+              {sessionUser && (
+                <div hidden={song.userId !== sessionUser.id ? true : false}>
+                <EditSongFormModal song={song} />
+                <button onClick={() => dispatch(songActions.remove(song))}>Delete</button>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className='home-page-footer'>
+        <ul className='tech-used'>
+          <li>
+            React
           </li>
-        ))}
-      </ul>
+          <li>
+            Redux
+          </li>
+          <li>
+            Express
+          </li>
+          <li>
+            Sequelize
+          </li>
+        </ul>
+      </div>
     </>
   );
 }

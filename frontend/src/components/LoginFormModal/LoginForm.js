@@ -24,7 +24,7 @@ function LoginForm() {
 
   return (
     <>
-    <h1>Log in, lets make some noise!</h1>
+      <h1 className='login-form-h1'>Log in, lets make some noise!</h1>
       <form
         onSubmit={handleSubmit}
         className="login-form"
