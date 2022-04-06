@@ -33,9 +33,9 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <RiAliensFill />
-      </button>
+      <div className="hello" onClick={openMenu}>
+        <i className="fa fa-alien"></i>
+      </div>
       {showMenu && (
         <ul className="profile-dropdown">
           <li>{user.username}</li>
