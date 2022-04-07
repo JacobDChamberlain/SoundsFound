@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, Redirect, useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player/file';
 import EditSongFormModal from '../EditSongFormModal';
 import * as songActions from '../../store/songs';
@@ -19,12 +19,10 @@ function IndividualSongPage() {
 
   const songs = useSelector(state => state.songs);
 
-  console.log(songs);
-
   const song = songs[songId];
 
-  console.log(song);
-
+  if (!sessionUser) return <Redirect to="/" />;
+  
   return (
     <>
       {sessionUser && song && (
