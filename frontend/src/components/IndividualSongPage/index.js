@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect, useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player/file';
 import EditSongFormModal from '../EditSongFormModal';
+import Footer from '../Footer';
 import * as songActions from '../../store/songs';
 
 function IndividualSongPage() {
@@ -22,7 +23,7 @@ function IndividualSongPage() {
   const song = songs[songId];
 
   if (!sessionUser) return <Redirect to="/" />;
-  
+
   return (
     <>
       {sessionUser && song && (
@@ -49,22 +50,7 @@ function IndividualSongPage() {
           </li>
         </ul>
       )}
-      <div className='home-page-footer'>
-        <ul className='tech-used'>
-          <li>
-            React
-          </li>
-          <li>
-            Redux
-          </li>
-          <li>
-            Express
-          </li>
-          <li>
-            Sequelize
-          </li>
-        </ul>
-      </div>
+      <Footer />
     </>
   );
 }

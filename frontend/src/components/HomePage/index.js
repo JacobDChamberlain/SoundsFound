@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { BsMusicNote } from 'react-icons/bs';
+import Footer from '../Footer';
 import * as songActions from '../../store/songs';
 import './HomePage.css';
 
@@ -24,22 +25,7 @@ function HomePage() {
         <h2 className='home-page-h2'><BsMusicNote />[soundsfound]<BsMusicNote /></h2>
         <h3 className='home-page-h3'>a place to find sounds</h3>
       </div>
-      <div className='home-page-footer'>
-        <ul className='tech-used'>
-          <li>
-            React
-          </li>
-          <li>
-            Redux
-          </li>
-          <li>
-            Express
-          </li>
-          <li>
-            Sequelize
-          </li>
-        </ul>
-      </div>
+      <Footer />
     </>
   );
 }
