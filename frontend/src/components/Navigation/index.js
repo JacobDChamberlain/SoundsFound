@@ -1,12 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import UploadSongFormModal from '../UploadSongFormModal';
+import * as sessionActions from '../../store/session';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
+
+  const dispatch = useDispatch();
 
   const sessionUser = useSelector(state => state.session.user);
 
@@ -24,13 +27,18 @@ function Navigation({ isLoaded }) {
     );
   }
 
+  const demoUser = {
+    credential: 'FakeMane1',
+    password: 'password'
+  };
+
   return (
     <nav className='nav-bar'>
       <ul className='nav-links'>
         <li>
           {/* <NavLink exact to="/">Home</NavLink> */}
           {!sessionUser && (
-            <NavLink exact to="/demo">Demo</NavLink>
+            <button onClick={() => dispatch(sessionActions.login(demoUser))}>Demo</button>
           )}
           {sessionUser && (
             <NavLink exact to="/songs">Songs</NavLink>
