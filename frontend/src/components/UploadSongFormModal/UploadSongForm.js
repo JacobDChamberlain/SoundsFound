@@ -27,7 +27,6 @@ function UploadSongForm({ closeModal }) {
 
     const song = { userId, url, title };
 
-    // dispatch(songActions.upload(song));
     setErrors([]);
     dispatch(songActions.upload(song));
 

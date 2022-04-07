@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import ReactPlayer from 'react-player/file';
 import EditSongFormModal from '../EditSongFormModal';
 import * as songActions from '../../store/songs';
@@ -18,7 +19,7 @@ function HomePage() {
 
   const allSongsArray = Object.values(allSongs);
 
-  // TODO - display username of the one who posted the song instead of id by song.userId
+
 
   return (
     <>
@@ -30,16 +31,10 @@ function HomePage() {
         <ul>
           {allSongsArray.map(song => (
             <li key={song.id}>
-              <h2>{song.title}</h2>
-              <div>User: {song.User.username}</div>
+              <h2><NavLink to={`/songs/${song.id}`}>{song.title}</NavLink></h2>
+              {/* <div>User: {song.User.username}</div> */}
               <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
               <ReactPlayer controls url={song.url} />
-              {sessionUser && (
-                <div hidden={song.userId !== sessionUser.id ? true : false}>
-                <EditSongFormModal song={song} />
-                <button onClick={() => dispatch(songActions.remove(song))}>Delete</button>
-                </div>
-              )}
             </li>
           ))}
         </ul>
