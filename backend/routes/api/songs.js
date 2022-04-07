@@ -86,7 +86,7 @@ router.put('/:songId', validateEditSong, asyncHandler(async (req, res) => {
     title
   });
 
-  return res.json({ song });
+  return res.redirect(`${req.baseUrl}/${song.id}`);
 }));
 
 
