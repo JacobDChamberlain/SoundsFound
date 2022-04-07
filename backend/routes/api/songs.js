@@ -5,6 +5,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { Song } = require('../../db/models');
 const { User } = require('../../db/models');
+const { Comment } = require('../../db/models');
 
 const router = express.Router();
 
@@ -53,7 +54,7 @@ router.get('/:songId', asyncHandler(async (req, res) => {
   const songId = req.params.songId;
 
   const song = await Song.findByPk(songId, {
-    include: { model: User }
+    include: { model: User, Comment }
   });
 
   return res.json(song);
