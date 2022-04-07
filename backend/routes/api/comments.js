@@ -10,21 +10,15 @@ const { Comment } = require('../../db/models');
 const router = express.Router();
 
 
-// const validateUploadSong = [
-//   check('url')
-//     .exists({ checkFalsy: true })
-//     .withMessage("Please provide a url for your song."),
-//   check('url')
-//     .isURL()
-//     .withMessage("Please provide a valid URL."),
-//   check('title')
-//     .exists({ checkFalsy: true })
-//     .withMessage("Please provide a title."),
-//   check('title')
-//     .isLength({ max: 150 })
-//     .withMessage("Song titles must be under 150 characters."),
-//   handleValidationErrors
-// ];
+const validateUploadComment = [
+  check('body')
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a comment."),
+  check('body')
+    .isLength({ max: 200 })
+    .withMessage("Comments must be under 200 characters."),
+  handleValidationErrors
+];
 
 // const validateEditSong = [
 //   check('title')
@@ -64,17 +58,17 @@ router.get('/:songId', asyncHandler(async (req, res) => {
 // }));
 
 
-// // Upload a song: (CREATE):
-// router.post('/', validateUploadSong, asyncHandler(async (req, res) => {
+// Post a comment: (CREATE):
+router.post('/:songId', validateUploadSong, asyncHandler(async (req, res) => {
 
-//   const { userId, url, title } = req.body;
+  const { userId, songId, body } = req.body;
 
-//   const song = await Song.create({
-//     userId, url, title
-//   });
+  const comment = await Comment.create({
+    userId, songId, body
+  });
 
-//   return res.redirect(`${req.baseUrl}/${song.id}`);
-// }));
+  return res.redirect(`/songs/${song.id}`);
+}));
 
 
 // // Edit a song (UPDATE):
