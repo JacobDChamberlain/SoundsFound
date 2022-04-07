@@ -60,7 +60,8 @@ function IndividualSongPage() {
           {commentsArr.map(comment => (
             <li key={comment.id}>
               <div>User: {comment.User.username}</div>
-              <div>Comment: {comment.body}</div>
+              <div>{comment.body}</div>
+              <br />
             </li>
           ))}
         </ul>

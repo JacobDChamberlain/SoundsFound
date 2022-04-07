@@ -33,7 +33,7 @@ const commentsReducer = (state = initialState, action) => {
       action.comments.forEach(comment => {
         songComments[comment.id] = comment;
       });
-      newState = {...state, ...songComments};
+      newState = {...songComments};
       return newState;
     default:
       return state;
