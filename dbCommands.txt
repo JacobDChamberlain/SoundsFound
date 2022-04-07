@@ -1,0 +1,46 @@
+DROP TABLE Comments
+DROP TABLE Songs
+DROP TABLE Users
+
+then
+
+-------------------------- Users ------------------------
+Generate User model:
+npx sequelize model:generate --name User --attributes username:string,email:string,hashedPassword:string
+
+Run Migration:
+npx dotenv sequelize db:migrate
+
+Generate User Demo Seeds:
+npx sequelize seed:generate --name demo-user
+
+Seed Database:
+npx dotenv sequelize db:seed:all
+
+
+-------------------------- Songs ------------------------
+Generate Song model:
+npx sequelize model:generate --name Song --attributes userId:integer,playlistId:integer,url:string,title:string
+
+Run Migration:
+npx dotenv sequelize db:migrate
+
+Generate Song Demo Seeds:
+npx sequelize seed:generate --name demo-song
+
+Seed Database:
+npx dotenv sequelize db:seed:all
+
+
+-------------------------- Comments ------------------------
+Generate Comment model:
+npx sequelize model:generate --name Comment --attributes userId:integer,songId:integer,body:string
+
+Run Migration:
+npx dotenv sequelize db:migrate
+
+Generate Song Demo Seeds:
+npx sequelize seed:generate --name demo-comment
+
+Seed Database:
+npx dotenv sequelize db:seed:all
