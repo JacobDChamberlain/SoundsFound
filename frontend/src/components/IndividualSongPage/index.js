@@ -21,8 +21,10 @@ function IndividualSongPage() {
   const sessionUser = useSelector(state => state.session.user);
 
   const songs = useSelector(state => state.songs);
-
   const song = songs[songId];
+
+  const comments = useSelector(state => state.comments)
+  const commentsArr = Object.values(comments);
 
   if (!sessionUser) return <Redirect to="/" />;
 
@@ -31,17 +33,17 @@ function IndividualSongPage() {
       {sessionUser && song && (
         <ul className='song-info-container'>
           <li className='individual-song-li' key={song.id}>
-          <ul className='song-info-ul'>
-                <li>
-                  <h2><NavLink to={`/songs/${song.id}`}>{song.title}</NavLink></h2>
-                </li>
-                <li>
-                  User: {song.User.username}
-                </li>
-                <li>
-                  <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
-                </li>
-              </ul>
+            <ul className='song-info-ul'>
+              <li>
+                <h2><NavLink to={`/songs/${song.id}`}>{song.title}</NavLink></h2>
+              </li>
+              <li>
+                User: {song.User.username}
+              </li>
+              <li>
+                <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
+              </li>
+            </ul>
             <ReactPlayer height="100px" controls url={song.url} />
             {sessionUser && (
               <div hidden={song.userId !== sessionUser.id ? true : false}>
@@ -50,6 +52,16 @@ function IndividualSongPage() {
               </div>
             )}
           </li>
+        </ul>
+      )}
+      {comments && (
+        <ul className='comments-ul'>
+          {commentsArr.map(comment => (
+            <li key={comment.id}>
+              <div>User: {comment.User.username}</div>
+              {comment.body}
+            </li>
+          ))}
         </ul>
       )}
       <Footer />
