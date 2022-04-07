@@ -33,13 +33,19 @@ function IndividualSongPage() {
         <h3 className='home-page-h3'>a place to find [sounds]</h3>
       </div>
       {sessionUser && song && (
-        <ul>
-          <li key={song.id}>
-            <div className='song-info-container'>
-              <h2>{song.title}</h2>
-              <div>User: {song.User.username}</div>
-              <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
-            </div>
+        <ul className='song-info-container'>
+          <li className='individual-song-li' key={song.id}>
+          <ul className='song-info-ul'>
+                <li>
+                  <h2><NavLink to={`/songs/${song.id}`}>{song.title}</NavLink></h2>
+                </li>
+                <li>
+                  User: {song.User.username}
+                </li>
+                <li>
+                  <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
+                </li>
+              </ul>
             <ReactPlayer height="100px" controls url={song.url} />
             {sessionUser && (
               <div hidden={song.userId !== sessionUser.id ? true : false}>
