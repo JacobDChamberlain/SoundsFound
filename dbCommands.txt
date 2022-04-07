@@ -44,3 +44,15 @@ npx sequelize seed:generate --name demo-comment
 
 Seed Database:
 npx dotenv sequelize db:seed:all
+
+
+-------------------------- Heroku ------------------------
+
+Migrate:
+heroku run npm run sequelize db:migrate
+
+Seed:
+heroku run npm run sequelize db:seed:all
+
+Logs:
+heroku logs --tail
