@@ -1,7 +1,7 @@
 .login-form {
   display: flex;
   flex-direction: column;
-  background-color: rgba(198,250,237,98);
+  background-color: rgba(198,208,250,98);
   align-items: center;
   font-family: interstate, sans-serif;
   font-style: italicnormal;

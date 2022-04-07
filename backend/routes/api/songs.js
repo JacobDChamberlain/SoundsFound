@@ -78,15 +78,19 @@ router.put('/:songId', validateEditSong, asyncHandler(async (req, res) => {
 
   const songId = req.params.songId;
 
-  const song = await Song.findByPk(songId);
+  const editSong = await Song.findByPk(songId);
 
   const { title } = req.body;
 
-  await song.update({
+  await editSong.update({
     title
   });
 
-  return res.redirect(`${req.baseUrl}/${song.id}`);
+  const song = await Song.findByPk(songId, {
+    include: { model: User }
+  });
+
+  return res.json(song);
 }));
 
 
