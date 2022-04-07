@@ -29,12 +29,18 @@ function HomePage() {
       {sessionUser && (
         <ul>
           {allSongsArray.map(song => (
-            <li key={song.id}>
-              <div className='song-info-container'>
-                <h2><NavLink to={`/songs/${song.id}`}>{song.title}</NavLink></h2>
-                <div>User: {song.User.username}</div>
-                <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
-              </div>
+            <li className='individual-song-li' key={song.id}>
+              <ul className='song-info-ul'>
+                <li>
+                  <h2><NavLink to={`/songs/${song.id}`}>{song.title}</NavLink></h2>
+                </li>
+                <li>
+                  User: {song.User.username}
+                </li>
+                <li>
+                  <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
+                </li>
+              </ul>
               <ReactPlayer height="100px" controls url={song.url} />
             </li>
           ))}

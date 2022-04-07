@@ -32,6 +32,16 @@ li {
   background-color: rgba(198,208,250,98);
 }
 
-.song-info-container {
+.song-info-ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   text-align: left;
+}
+
+.individual-song-li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
