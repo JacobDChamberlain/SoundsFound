@@ -21,8 +21,12 @@ li {
   justify-content: center;
   font-family: interstate, sans-serif;
   font-style: italicnormal;
-  background-color: rgba(175,196,222,87);
+  color: aliceblue;
+  font-size: 32pt;
+  /* background-color: rgba(175,196,222,87); */
   height: 600px;
+  background-image: url("../../../public/images/andrea-de-santis-i2BcaGXomv0-unsplash.jpg");
+  background-size: 100%;
 }
 
 .tech-used {
