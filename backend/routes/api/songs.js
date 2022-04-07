@@ -52,7 +52,9 @@ router.get('/:songId', asyncHandler(async (req, res) => {
 
   const songId = req.params.songId;
 
-  const song = await Song.findByPk(songId);
+  const song = await Song.findByPk(songId, {
+    include: { model: User }
+  });
 
   return res.json(song);
 }));
@@ -67,7 +69,7 @@ router.post('/', validateUploadSong, asyncHandler(async (req, res) => {
     userId, url, title
   });
 
-  return res.json(song);
+  return res.redirect(`${req.baseUrl}/${song.id}`);
 }));
 
 
