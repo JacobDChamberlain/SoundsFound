@@ -35,10 +35,12 @@ function IndividualSongPage() {
       {sessionUser && song && (
         <ul>
           <li key={song.id}>
-            <h2>{song.title}</h2>
-            <div>User: {song.User.username}</div>
-            <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
-            <ReactPlayer controls url={song.url} />
+            <div className='song-info-container'>
+              <h2>{song.title}</h2>
+              <div>User: {song.User.username}</div>
+              <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
+            </div>
+            <ReactPlayer height="100px" controls url={song.url} />
             {sessionUser && (
               <div hidden={song.userId !== sessionUser.id ? true : false}>
               <EditSongFormModal song={song} />
