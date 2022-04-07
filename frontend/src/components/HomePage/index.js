@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ReactPlayer from 'react-player/file';
-import EditSongFormModal from '../EditSongFormModal';
 import * as songActions from '../../store/songs';
 import './HomePage.css';
 
@@ -31,10 +30,12 @@ function HomePage() {
         <ul>
           {allSongsArray.map(song => (
             <li key={song.id}>
-              <h2><NavLink to={`/songs/${song.id}`}>{song.title}</NavLink></h2>
-              <div>User: {song.User.username}</div>
-              <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
-              <ReactPlayer controls url={song.url} />
+              <div className='song-info-container'>
+                <h2><NavLink to={`/songs/${song.id}`}>{song.title}</NavLink></h2>
+                <div>User: {song.User.username}</div>
+                <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
+              </div>
+              <ReactPlayer height="100px" controls url={song.url} />
             </li>
           ))}
         </ul>
