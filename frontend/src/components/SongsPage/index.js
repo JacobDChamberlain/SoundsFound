@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ReactPlayer from 'react-player/file';
 import { Redirect } from 'react-router-dom';
+import Footer from '../Footer';
 import * as songActions from '../../store/songs';
 import './SongsPage.css';
 
@@ -44,22 +45,7 @@ function SongsPage() {
           ))}
         </ul>
       )}
-      <div className='home-page-footer'>
-        <ul className='tech-used'>
-          <li>
-            React
-          </li>
-          <li>
-            Redux
-          </li>
-          <li>
-            Express
-          </li>
-          <li>
-            Sequelize
-          </li>
-        </ul>
-      </div>
+      <Footer />
     </>
   );
 }
