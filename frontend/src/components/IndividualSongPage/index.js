@@ -23,8 +23,9 @@ function IndividualSongPage() {
   const songs = useSelector(state => state.songs);
   const song = songs[songId];
 
-  const comments = useSelector(state => state.comments)
+  const comments = useSelector(state => state.comments);
   const commentsArr = Object.values(comments);
+  // const filteredComments = commentsArr.filter(comment => comment.songId === songId);
 
   if (!sessionUser) return <Redirect to="/" />;
 
@@ -59,7 +60,7 @@ function IndividualSongPage() {
           {commentsArr.map(comment => (
             <li key={comment.id}>
               <div>User: {comment.User.username}</div>
-              {comment.body}
+              <div>Comment: {comment.body}</div>
             </li>
           ))}
         </ul>
