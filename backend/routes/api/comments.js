@@ -43,7 +43,7 @@ router.get('/:songId', asyncHandler(async (req, res) => {
   const songId = req.params.songId;
 
   const comments = await Comment.findAll({
-    where: songId
+    where: { songId }
   })
 
   return res.json(comments);

@@ -5,6 +5,7 @@ import ReactPlayer from 'react-player/file';
 import EditSongFormModal from '../EditSongFormModal';
 import Footer from '../Footer';
 import * as songActions from '../../store/songs';
+import * as commentActions from '../../store/comments';
 
 function IndividualSongPage() {
 
@@ -14,6 +15,7 @@ function IndividualSongPage() {
 
   useState(() => {
     dispatch(songActions.getOneSong(songId));
+    dispatch(commentActions.getComments(songId));
   }, [dispatch]);
 
   const sessionUser = useSelector(state => state.session.user);
