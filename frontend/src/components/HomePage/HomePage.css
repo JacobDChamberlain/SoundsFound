@@ -31,3 +31,7 @@ li {
   align-items: center;
   background-color: rgba(198,208,250,98);
 }
+
+.song-info-container {
+  text-align: left;
+}
