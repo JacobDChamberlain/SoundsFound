@@ -28,7 +28,13 @@ function Navigation({ isLoaded }) {
     <nav className='nav-bar'>
       <ul className='nav-links'>
         <li>
-          <NavLink exact to="/">Home</NavLink>
+          {/* <NavLink exact to="/">Home</NavLink> */}
+          {!sessionUser && (
+            <NavLink exact to="/demo">Demo</NavLink>
+          )}
+          {sessionUser && (
+            <NavLink exact to="/songs">Songs</NavLink>
+          )}
           {isLoaded && sessionLinks}
           {sessionUser && (
             <UploadSongFormModal />

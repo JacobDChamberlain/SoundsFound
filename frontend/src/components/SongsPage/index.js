@@ -1,36 +1,34 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import ReactPlayer from 'react-player/file';
-import EditSongFormModal from '../EditSongFormModal';
+import { Redirect } from 'react-router-dom';
 import * as songActions from '../../store/songs';
+import './SongsPage.css';
 
-function IndividualSongPage() {
+function SongsPage() {
 
   const dispatch = useDispatch();
 
-  const {songId} = useParams();
-
   useState(() => {
-    dispatch(songActions.getOneSong(songId));
+    dispatch(songActions.getAllSongs());
   }, [dispatch]);
 
+  const allSongs = useSelector(state => state.songs);
   const sessionUser = useSelector(state => state.session.user);
 
-  const songs = useSelector(state => state.songs);
+  const allSongsArray = Object.values(allSongs);
 
-  console.log(songs);
+  if (!sessionUser) return <Redirect to="/" />;
 
-  const song = songs[songId];
-
-  console.log(song);
 
   return (
     <>
-      {sessionUser && song && (
-        <ul className='song-info-container'>
-          <li className='individual-song-li' key={song.id}>
-          <ul className='song-info-ul'>
+      {sessionUser && (
+        <ul>
+          {allSongsArray.map(song => (
+            <li className='individual-song-li' key={song.id}>
+              <ul className='song-info-ul'>
                 <li>
                   <h2><NavLink to={`/songs/${song.id}`}>{song.title}</NavLink></h2>
                 </li>
@@ -41,14 +39,9 @@ function IndividualSongPage() {
                   <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
                 </li>
               </ul>
-            <ReactPlayer height="100px" controls url={song.url} />
-            {sessionUser && (
-              <div hidden={song.userId !== sessionUser.id ? true : false}>
-              <EditSongFormModal song={song} />
-              <button onClick={() => dispatch(songActions.remove(song))}>Delete</button>
-              </div>
-            )}
-          </li>
+              <ReactPlayer height="100px" controls url={song.url} />
+            </li>
+          ))}
         </ul>
       )}
       <div className='home-page-footer'>
@@ -71,4 +64,4 @@ function IndividualSongPage() {
   );
 }
 
-export default IndividualSongPage;
+export default SongsPage;
