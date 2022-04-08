@@ -24,7 +24,7 @@ function SongsPage() {
 
 
   return (
-    <>
+    <div className='songs-container'>
       {sessionUser && (
         <ul>
           {allSongsArray.map(song => (
@@ -43,7 +43,7 @@ function SongsPage() {
         </ul>
       )}
       <Footer />
-    </>
+    </div>
   );
 }
 
