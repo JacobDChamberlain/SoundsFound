@@ -59,7 +59,7 @@ router.get('/:songId', asyncHandler(async (req, res) => {
 
 
 // Post a comment: (CREATE):
-router.post('/:songId', validateUploadSong, asyncHandler(async (req, res) => {
+router.post('/:songId', validateUploadComment, asyncHandler(async (req, res) => {
 
   const { userId, songId, body } = req.body;
 
