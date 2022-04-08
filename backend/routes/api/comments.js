@@ -69,7 +69,7 @@ router.post('/:songId', validateUploadComment, asyncHandler(async (req, res) => 
     userId, songId, body
   });
 
-  return res.redirect(`songs/${songId}`);
+  return res.json(comment);
 }));
 
 
