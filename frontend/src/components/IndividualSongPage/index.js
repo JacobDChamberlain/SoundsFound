@@ -56,7 +56,7 @@ function IndividualSongPage() {
       {comments && (
         <ul className='comments-ul'>
           {commentsArr.map(comment => (
-            <li key={comment.id}>
+            <li key={`${comment.id}`}>
               <div>User: {comment.User?.username}</div>
               <div>{comment.body}</div>
               <br />

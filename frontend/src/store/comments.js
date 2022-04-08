@@ -21,9 +21,14 @@ export const getComments = (songId) => async dispatch => {
 
   const res = await fetch(`/api/comments/${songId}`);
 
-  const comments = await res.json();
 
-  dispatch(loadSongComments(comments));
+
+  if (res.ok) {
+    const comments = await res.json();
+    dispatch(loadSongComments(comments));
+    return comments
+  }
+
 }
 
 // thunk action creator to fetch POST a comment to backend api:
