@@ -36,9 +36,6 @@ function SongsPage() {
                 <li>
                   User: {song.User.username}
                 </li>
-                <li>
-                  <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
-                </li>
               </ul>
               <ReactPlayer height="100px" controls url={song.url} />
             </li>

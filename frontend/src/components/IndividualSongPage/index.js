@@ -29,8 +29,6 @@ function IndividualSongPage() {
 
   if (!sessionUser) return <Redirect to="/" />;
 
-  if(!song) return null;
-
   return (
     <>
       {sessionUser && song && (
@@ -43,9 +41,6 @@ function IndividualSongPage() {
               <li>
                 User: {song.User.username}
               </li>
-              <li>
-                <div hidden={song.playlistId === null ? true : false}>Playlist: {song.playlistId}</div>
-              </li>
             </ul>
             <ReactPlayer height="100px" controls url={song.url} />
             {sessionUser && (
@@ -57,12 +52,12 @@ function IndividualSongPage() {
           </li>
         </ul>
       )}
-      <PostCommentForm song={song} />
+      {song && (<PostCommentForm song={song} />)}
       {comments && (
         <ul className='comments-ul'>
           {commentsArr.map(comment => (
             <li key={comment.id}>
-              {/* <div>User: {comment.User.username}</div> */}
+              <div>User: {comment.User?.username}</div>
               <div>{comment.body}</div>
               <br />
             </li>
