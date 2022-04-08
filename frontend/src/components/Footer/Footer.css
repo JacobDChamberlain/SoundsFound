@@ -1,0 +1,6 @@
+.tech-used {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(198,208,250,98);
+}

@@ -9,11 +9,6 @@ li {
   text-align: center;
 }
 
-.upload-song-modal {
-  display: flex;
-  justify-content: center;
-}
-
 .home-page-header {
   display: flex;
   flex-direction: column;
@@ -27,25 +22,4 @@ li {
   height: 600px;
   background-image: url("../../../public/images/andrea-de-santis-i2BcaGXomv0-unsplash.jpg");
   background-size: 100%;
-}
-
-.tech-used {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: rgba(198,208,250,98);
-}
-
-.song-info-ul {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.individual-song-li {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
 }

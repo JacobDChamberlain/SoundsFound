@@ -33,8 +33,8 @@ function PostCommentForm({ song }) {
   }
 
   return (
-    <>
-      <h4>Post a Comment:</h4>
+    <div className='post-comment-form-container'>
+      <h4 className='post-comment-form-h4'>Post a Comment:</h4>
       <form
         onSubmit={handleSubmit}
         className='post-comment-form'
@@ -56,7 +56,7 @@ function PostCommentForm({ song }) {
           Post
         </button>
       </form>
-    </>
+    </div>
   )
 }
 
