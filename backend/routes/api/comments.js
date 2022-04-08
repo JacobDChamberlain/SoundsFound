@@ -69,7 +69,11 @@ router.post('/:songId', validateUploadComment, asyncHandler(async (req, res) => 
     userId, songId, body
   });
 
-  return res.json(comment);
+  const newComment = await Comment.findByPk(comment.id, {
+    include: User
+  })
+
+  return res.json(newComment);
 }));
 
 
