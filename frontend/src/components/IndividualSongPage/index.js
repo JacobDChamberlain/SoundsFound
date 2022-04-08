@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect, useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player/file';
 import EditSongFormModal from '../EditSongFormModal';
+import PostCommentForm from '../PostCommentForm';
 import Footer from '../Footer';
 import * as songActions from '../../store/songs';
 import * as commentActions from '../../store/comments';
@@ -55,11 +56,12 @@ function IndividualSongPage() {
           </li>
         </ul>
       )}
+      <PostCommentForm song={song} />
       {comments && (
         <ul className='comments-ul'>
           {commentsArr.map(comment => (
             <li key={comment.id}>
-              <div>User: {comment.User.username}</div>
+              {/* <div>User: {comment.User.username}</div> */}
               <div>{comment.body}</div>
               <br />
             </li>
