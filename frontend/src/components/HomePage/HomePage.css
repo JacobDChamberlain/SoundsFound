@@ -1,7 +1,7 @@
 li {
   display: flex;
   flex-direction: column;
-  background-color: rgba(198,208,250,98);
+  /* background-color: rgba(198,208,250,98); */
   align-items: center;
   font-family: interstate, sans-serif;
   font-style: italicnormal;
@@ -18,8 +18,7 @@ li {
   font-style: italicnormal;
   color: aliceblue;
   font-size: 32pt;
-  /* background-color: rgba(175,196,222,87); */
-  height: 600px;
+  height: 1000px;
   background-image: url("../../../public/images/andrea-de-santis-i2BcaGXomv0-unsplash.jpg");
   background-size: 100%;
 }

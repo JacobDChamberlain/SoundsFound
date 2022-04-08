@@ -1,3 +1,8 @@
+.songs-container {
+  background-image: url("../../../public/images/andrea-de-santis-i2BcaGXomv0-unsplash.jpg");
+  color: aliceblue;
+}
+
 .song-info-ul {
   display: flexbox;
   align-items: flex-start;
@@ -9,4 +14,16 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(198,208,250,0);
+  align-items: center;
+  font-family: interstate, sans-serif;
+  font-style: italicnormal;
+  font-weight: 100;
+  text-align: center;
 }

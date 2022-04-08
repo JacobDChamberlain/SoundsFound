@@ -31,13 +31,13 @@ function IndividualSongPage() {
   if (!song) return <Redirect to="/songs" />
 
   return (
-    <>
+    <div className='individual-songs-page-container'>
       {sessionUser && song && (
         <ul className='song-info-container'>
           <li className='individual-song-li' key={song.id}>
             <ul className='song-info-ul'>
               <li>
-                <h2><NavLink to={`/songs/${song.id}`}>{song.title}</NavLink></h2>
+                <h2 className='song-title'><NavLink to={`/songs/${song.id}`}>{song.title}</NavLink></h2>
               </li>
               <li>
                 User: {song.User.username}
@@ -54,24 +54,27 @@ function IndividualSongPage() {
         </ul>
       )}
       {song && (<PostCommentForm song={song} />)}
-      {comments && (
-        <ul className='comments-ul'>
-          {commentsArr.map(comment => (
-            <li key={`${comment.id}`}>
-              <div>User: {comment.User?.username}</div>
-              <div>{comment.body}</div>
-              {sessionUser && (
-                <div hidden={comment.userId !== sessionUser.id ? true : false}>
-                <button className='delete-comment-button' onClick={() => dispatch(commentActions.deleteComment(comment))}>Delete</button>
-                </div>
-              )}
-              <br />
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className='comments-container'>
+        {comments && (
+          <ul className='comments-ul'>
+            {commentsArr.map(comment => (
+              <li key={`${comment.id}`}>
+                <div>User: {comment.User?.username}</div>
+                <div>{comment.body}</div>
+                {sessionUser && (
+                  <div hidden={comment.userId !== sessionUser.id ? true : false}>
+                  <button className='delete-comment-button' onClick={() => dispatch(commentActions.deleteComment(comment))}>Delete</button>
+                  </div>
+                )}
+                <br />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
       <Footer />
-    </>
+    </div>
   );
 }
 
