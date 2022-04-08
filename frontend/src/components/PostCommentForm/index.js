@@ -42,13 +42,10 @@ function PostCommentForm({ song }) {
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
-        <label>
-          Comment: {' '}
-          <textarea
-            onChange={e => setBody(e.target.value)}
-            value={body}
-          />
-        </label>
+        <textarea
+          onChange={e => setBody(e.target.value)}
+          value={body}
+        />
         <button
           type="submit"
           className='post-comment-button'
