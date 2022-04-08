@@ -11,6 +11,7 @@ function PostCommentForm({ song }) {
 
   const userId = sessionUser.id;
   const songId = song.id;
+  console.log("post comment form", song)
 
   const [body, setBody] = useState('');
   const [errors, setErrors] = useState([]);

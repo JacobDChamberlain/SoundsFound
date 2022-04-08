@@ -26,9 +26,10 @@ function IndividualSongPage() {
 
   const comments = useSelector(state => state.comments);
   const commentsArr = Object.values(comments);
-  // const filteredComments = commentsArr.filter(comment => comment.songId === songId);
 
   if (!sessionUser) return <Redirect to="/" />;
+
+  if(!song) return null;
 
   return (
     <>
