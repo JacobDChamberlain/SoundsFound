@@ -1,0 +1,17 @@
+.post-comment-form-container {
+  background-color: rgba(175,196,222,87);
+}
+
+.post-comment-form-h4 {
+  display: flex;
+  justify-content: center;
+  font-family: interstate, sans-serif;
+  font-style: italicnormal;
+}
+
+.post-comment-form {
+  display: flex;
+  justify-content: center;
+  font-family: interstate, sans-serif;
+  font-style: italicnormal;
+}

@@ -1,0 +1,12 @@
+.song-info-ul {
+  display: flexbox;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.individual-song-li {
+  display: flexbox;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
