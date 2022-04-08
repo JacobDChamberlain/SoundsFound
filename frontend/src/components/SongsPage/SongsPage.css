@@ -14,13 +14,13 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.8);
 }
 
 li {
   display: flex;
   flex-direction: column;
-  background-color: rgba(198,208,250,0);
+  /* background-color: rgba(198,208,250,0); */
   align-items: center;
   font-family: interstate, sans-serif;
   font-style: italicnormal;
