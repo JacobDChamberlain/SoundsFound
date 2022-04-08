@@ -12,7 +12,6 @@ const loadAll = songs => ({
   songs
 });
 
-// may not need
 // action creator to load one song:
 const loadOne = song => ({
   type: LOAD_ONE_SONG,
@@ -48,7 +47,6 @@ export const getAllSongs = () => async dispatch => {
   dispatch(loadAll(songs));
 }
 
-// may not need?
 // thunk action creator to fetch one song from backend api:
 export const getOneSong = (songId) => async dispatch => {
 

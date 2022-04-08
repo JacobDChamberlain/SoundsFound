@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const LOAD_SONG_COMMENTS = 'soundsfound/comments/LOAD_SONG_COMMENTS';
 const POST_COMMENT = 'soundsfound/comments/POST_COMMENT';
+const DELETE_COMMENT = 'soundsfound/comments/DELETE_COMMENT';
 
 // action creator to load all the comments for a song:
 const loadSongComments = comments => ({
@@ -12,6 +13,12 @@ const loadSongComments = comments => ({
 // action creator to post a comment on a song:
 const postAComment = comment => ({
   type: POST_COMMENT,
+  comment
+});
+
+//action creator to delete a comment:
+const deleteAComment = comment => ({
+  type: DELETE_COMMENT,
   comment
 });
 
@@ -46,6 +53,18 @@ export const post = (comment) => async dispatch => {
   }
 }
 
+// thunk action creator to fetch DELETE a comment from backend api:
+export const deleteComment = (comment) => async dispatch => {
+
+  const res = await csrfFetch(`/api/comments/${comment.id}`,{
+    method: "DELETE"
+  });
+
+  if (res.ok) {
+    dispatch(deleteAComment(comment));
+  }
+}
+
 const initialState = {};
 
 const commentsReducer = (state = initialState, action) => {
@@ -63,6 +82,10 @@ const commentsReducer = (state = initialState, action) => {
     case POST_COMMENT:
       newState = {...state};
       newState[action.comment.id] = action.comment;
+      return newState;
+    case DELETE_COMMENT:
+      newState = {...state};
+      delete newState[action.comment.id];
       return newState;
     default:
       return state;
