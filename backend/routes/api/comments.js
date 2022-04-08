@@ -98,17 +98,17 @@ router.post('/:songId', validateUploadComment, asyncHandler(async (req, res) => 
 // }));
 
 
-// // Remove a song (DELETE):
-// router.delete('/:songId', asyncHandler(async (req, res) => {
+// Remove a comment (DELETE):
+router.delete('/:commentId/', asyncHandler(async (req, res) => {
 
-//   const songId = req.params.songId;
+  const commentId = req.params.commentId;
 
-//   const song = await Song.findByPk(songId);
+  const comment = await Comment.findByPk(commentId);
 
-//   await song.destroy();
+  await comment.destroy();
 
-//   return res.json({ "message": "song deleted. beep boop." });
-// }));
+  return res.json({ "message": "comment deleted. beep boop." });
+}));
 
 
 module.exports = router;
