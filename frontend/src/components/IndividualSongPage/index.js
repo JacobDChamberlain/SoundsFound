@@ -28,6 +28,7 @@ function IndividualSongPage() {
   const commentsArr = Object.values(comments);
 
   if (!sessionUser) return <Redirect to="/" />;
+  if(!comments) return null;
 
   return (
     <>
