@@ -61,13 +61,15 @@ router.get('/:songId', asyncHandler(async (req, res) => {
 // Post a comment: (CREATE):
 router.post('/:songId', validateUploadComment, asyncHandler(async (req, res) => {
 
-  const { userId, songId, body } = req.body;
+  const songId = req.params.songId;
+
+  const { userId, body } = req.body;
 
   const comment = await Comment.create({
     userId, songId, body
   });
 
-  return res.redirect(`/songs/${song.id}`);
+  return res.redirect(`${req.baseUrl}/${songId}`);
 }));
 
 
