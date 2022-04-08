@@ -47,7 +47,7 @@ function IndividualSongPage() {
             {sessionUser && (
               <div hidden={song.userId !== sessionUser.id ? true : false}>
               <EditSongFormModal song={song} />
-              <button onClick={() => dispatch(songActions.remove(song))}>Delete</button>
+              <button className='delete-song-button' onClick={() => dispatch(songActions.remove(song))}>Delete</button>
               </div>
             )}
           </li>
@@ -60,6 +60,11 @@ function IndividualSongPage() {
             <li key={`${comment.id}`}>
               <div>User: {comment.User?.username}</div>
               <div>{comment.body}</div>
+              {sessionUser && (
+                <div hidden={comment.userId !== sessionUser.id ? true : false}>
+                <button className='delete-comment-button' onClick={() => dispatch(commentActions.deleteComment(comment))}>Delete</button>
+                </div>
+              )}
               <br />
             </li>
           ))}
