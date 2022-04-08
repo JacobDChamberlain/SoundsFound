@@ -30,6 +30,8 @@ function PostCommentForm({ song }) {
     const comment = { userId, songId, body };
 
     dispatch(commentActions.post(comment));
+
+    setBody('');
   }
 
   return (
