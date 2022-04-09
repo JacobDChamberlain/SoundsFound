@@ -11,5 +11,5 @@
 .nav-bar {
   display: flex;
   justify-content: center;
-  background-color: rgba(198,208,250,98);
+  background-color: darkslategray
 }
