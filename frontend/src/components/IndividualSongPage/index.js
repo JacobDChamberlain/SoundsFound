@@ -7,6 +7,7 @@ import PostCommentForm from '../PostCommentForm';
 import Footer from '../Footer';
 import * as songActions from '../../store/songs';
 import * as commentActions from '../../store/comments';
+import './IndividualSongPage.css'
 
 function IndividualSongPage() {
 
@@ -58,7 +59,7 @@ function IndividualSongPage() {
         {comments && (
           <ul className='comments-ul'>
             {commentsArr.map(comment => (
-              <li key={`${comment.id}`}>
+              <li className='individual-comment-li' key={`${comment.id}`}>
                 <div>User: {comment.User?.username}</div>
                 <div>{comment.body}</div>
                 {sessionUser && (
