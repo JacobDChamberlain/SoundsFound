@@ -1,5 +1,8 @@
 .upload-song-div {
-  background-color: rgba(206,234,245,96);
+  background-color: rgba(206,234,245,0);
+  background-image: url(../../../public/images/vinyluploadsong.webp);
+  background-position: right;
+  background-size: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,5 +12,15 @@
 }
 
 .upload-icon-outer-div {
-  font-size: 30px
+  font-size: 40px
+}
+
+.upload-song-button {
+  border-radius: 10px;
+  background-color: rgba(206,234,245,96);
+}
+
+.upload-h1 {
+  background-color: rgba(206,234,245,0.7);
+  box-shadow: 0px 5px 5px white;
 }

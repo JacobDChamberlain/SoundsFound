@@ -45,6 +45,7 @@ function Navigation({ isLoaded }) {
           {sessionUser && (
             <NavLink exact to="/songs">Songs</NavLink>
           )}
+          {sessionUser && (<br />)}
           {isLoaded && sessionLinks}
           {sessionUser && (
             <UploadSongFormModal />
