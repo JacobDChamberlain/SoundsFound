@@ -1,6 +1,7 @@
 .individual-songs-page-container {
   background-image: url("../../../public/images/andrea-de-santis-i2BcaGXomv0-unsplash.jpg");
   color: aliceblue;
+  height: 1000px;
 }
 
 .song-info-container {

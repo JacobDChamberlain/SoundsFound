@@ -2,5 +2,10 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgba(198,208,250,98);
+  background-color: rgba(198,208,250,0);
+  color: aliceblue;
+}
+
+a {
+  color: aliceblue;
 }
