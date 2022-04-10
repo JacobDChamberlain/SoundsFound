@@ -23,7 +23,7 @@ function LoginForm() {
   }
 
   return (
-    <>
+    <div className='login-form-modal-container'>
       <h1 className='login-form-h1'>Log in, lets make some noise!</h1>
       <form
         onSubmit={handleSubmit}
@@ -33,7 +33,7 @@ function LoginForm() {
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <label>
-          Username or Email...<br />Whatever you got is cool: {' '}
+          Username or Email...<br />
           <input
             type="text"
             value={credential}
@@ -41,8 +41,9 @@ function LoginForm() {
             required
           />
         </label>
+        <br />
         <label>
-          Password: {' '}
+          Password: <br />
           <input
             type="password"
             value={password}
@@ -50,14 +51,16 @@ function LoginForm() {
             required
           />
         </label>
+        <br />
         <button
           type="submit"
           className='login-button'
         >
           Log In
         </button>
+        <br />
       </form>
-    </>
+    </div>
 
   );
 }
