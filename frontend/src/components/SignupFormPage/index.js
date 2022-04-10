@@ -32,7 +32,8 @@ function SignupFormPage() {
   }
 
   return (
-    <>
+    <div className='sign-up-page-container'>
+      <br />
       <h1 className='signup-form-h1'>Sign up {'&'} get in here!</h1>
       <form
         onSubmit={handleSubmit}
@@ -50,6 +51,7 @@ function SignupFormPage() {
             required
           />
         </label>
+        <br />
         <label>
           Email: {' '}
           <input
@@ -59,6 +61,7 @@ function SignupFormPage() {
             required
           />
         </label>
+        <br />
         <label>
           Password: {' '}
           <input
@@ -68,6 +71,7 @@ function SignupFormPage() {
             required
           />
         </label>
+        <br />
         <label>
           Confirm Password: {' '}
           <input
@@ -77,6 +81,7 @@ function SignupFormPage() {
             required
           />
         </label>
+        <br />
         <button
           type="submit"
           className='signup-button'
@@ -84,7 +89,7 @@ function SignupFormPage() {
           Sign Up
         </button>
       </form>
-    </>
+    </div>
   );
 }
 
