@@ -30,3 +30,9 @@
   border-radius: 10px;
   background-color: rgba(0,0,0,0.5);
 }
+
+.delete-song-button {
+  background-color: rgba(0,0,0,0);
+  border-radius: 10px;
+  color:aliceblue
+}

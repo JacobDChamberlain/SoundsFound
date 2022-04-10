@@ -4,3 +4,9 @@
   justify-content: center;
   align-items: center;
 }
+
+.edit-song-button {
+  background-color: rgba(0,0,0,0);
+  border-radius: 10px;
+  color:aliceblue
+}

@@ -1,5 +1,5 @@
 .post-comment-form-container {
-  background-color: rgba(175,196,222,0);
+  background-color: rgba(175,196,222,0.2);
 }
 
 .post-comment-form-h4 {
@@ -14,4 +14,10 @@
   justify-content: center;
   font-family: interstate, sans-serif;
   font-style: italicnormal;
+}
+
+.post-comment-button {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 10px;
+  color:aliceblue;
 }
