@@ -15,3 +15,9 @@
   font-family: interstate, sans-serif;
   font-style: italicnormal;
 }
+
+.post-comment-button {
+  background-color: rgba(0,0,0,0);
+  border-radius: 10px;
+  color:aliceblue;
+}
