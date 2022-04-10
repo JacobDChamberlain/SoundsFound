@@ -1,6 +1,9 @@
 .individual-songs-page-container {
   background-image: url("../../../public/images/andrea-de-santis-i2BcaGXomv0-unsplash.jpg");
+  background-size: 180%;
+  background-position: left;
   color: aliceblue;
+  height: auto;
 }
 
 .song-info-container {
@@ -25,4 +28,5 @@
   align-items: center;
   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.8);
   border-radius: 10px;
+  background-color: rgba(0,0,0,0.5);
 }

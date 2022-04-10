@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  color:aliceblue
 }
 
 .profile-icon-outer-div {
@@ -11,5 +12,29 @@
 .nav-bar {
   display: flex;
   justify-content: center;
-  background-color: darkslategray
+  background-color: darkslategray;
+  background-image: url(../../../public/images/faders.webp);
+  background-size: 100%;
+  background-position: ;
+}
+
+.demo-button {
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0);
+  color: aliceblue;
+}
+
+.sign-up-link {
+  color:aliceblue
+}
+
+.sign-up-button {
+  background-color: rgba(0,0,0,0);
+  border-radius: 10px;
+}
+
+.logout-button {
+  background-color: rgba(0,0,0,0);
+  border-radius: 10px;
+  color: aliceblue
 }

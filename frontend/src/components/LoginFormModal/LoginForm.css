@@ -1,27 +1,35 @@
 .login-form {
   display: flex;
   flex-direction: column;
-  background-color: rgba(198,208,250,98);
+  background-color: rgba(0,0,0,0.2);
   align-items: center;
   font-family: interstate, sans-serif;
   font-style: italicnormal;
   font-weight: 100;
   text-align: center;
+  color: aliceblue;
 }
 
 .login-button {
   display: flex;
-  background-color: rgba(175,221,222,87);
-  width: 23.6%;
+  background-color: rgba(0,0,0,0);
   justify-content: center;
   align-items: center;
   font-family: interstate, sans-serif;
   font-style: italicnormal;
   font-weight: 100;
+  color: aliceblue;
+  border-radius: 10px;
 }
 
 .login-form-h1 {
-  background-color: rgba(198,208,250,98);
+  background-color: rgba(198,208,250,0.2);
   font-family: interstate, sans-serif;
   font-style: italicnormal;
+  color: aliceblue;
+}
+
+.login-form-modal-container {
+  background-image: url(../../../public/images/deathmetalalbumartcollage.jpeg);
+  background-position: bottom;
 }
