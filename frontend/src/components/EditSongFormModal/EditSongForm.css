@@ -1,12 +1,24 @@
 .edit-song-div {
   background-color: rgba(206,234,245,96);
+  background-image: url(../../../public/images/editsongmodalbackground.png);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  font-family: interstate, sans-serif;
+  font-style: italicnormal;
+  color: aliceblue;
 }
 
 .edit-song-button {
   background-color: rgba(0,0,0,0);
   border-radius: 10px;
-  color:aliceblue
+  color:aliceblue;
+  text-align: center;
+}
+
+.edit-song-form {
+  text-align: center;
+  color: aliceblue;
 }

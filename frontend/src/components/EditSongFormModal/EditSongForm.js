@@ -29,7 +29,7 @@ function EditSongForm({ song, closeModal }) {
 
     setErrors([]);
     dispatch(songActions.edit(song));
-    
+
     closeModal(false);
   }
 
@@ -44,7 +44,7 @@ function EditSongForm({ song, closeModal }) {
       className="edit-song-form"
       >
         <label>
-          Title: {' '}
+          Title: <br /><br />
           <input
             type="text"
             onChange={e => setTitle(e.target.value)}
@@ -52,6 +52,8 @@ function EditSongForm({ song, closeModal }) {
             required
           />
         </label>
+        <br />
+        <br />
         <button
           type="submit"
           className="edit-song-button"
