@@ -22,7 +22,9 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
+        <button className='sign-up-button'>
+          <NavLink className='sign-up-link' to="/signup">Sign Up</NavLink>
+        </button>
       </>
     );
   }
@@ -38,7 +40,7 @@ function Navigation({ isLoaded }) {
         <li>
           {/* <NavLink exact to="/">Home</NavLink> */}
           {!sessionUser && (
-            <button onClick={() => dispatch(sessionActions.login(demoUser))}>Demo</button>
+            <button className='demo-button' onClick={() => dispatch(sessionActions.login(demoUser))}>Demo</button>
           )}
           {sessionUser && (
             <NavLink exact to="/songs">Songs</NavLink>

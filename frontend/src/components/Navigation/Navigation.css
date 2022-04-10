@@ -13,3 +13,18 @@
   justify-content: center;
   background-color: darkslategray
 }
+
+.demo-button {
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0);
+  color: aliceblue;
+}
+
+.sign-up-link {
+  color:aliceblue
+}
+
+.sign-up-button {
+  background-color: rgba(0,0,0,0);
+  border-radius: 10px;
+}
