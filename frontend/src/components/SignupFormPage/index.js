@@ -43,7 +43,7 @@ function SignupFormPage() {
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <label>
-          Username: {' '}
+          Username: <br />
           <input
             type="text"
             onChange={e => setUsername(e.target.value)}
@@ -53,7 +53,7 @@ function SignupFormPage() {
         </label>
         <br />
         <label>
-          Email: {' '}
+          Email: <br />
           <input
             type="email"
             onChange={e => setEmail(e.target.value)}
@@ -63,7 +63,7 @@ function SignupFormPage() {
         </label>
         <br />
         <label>
-          Password: {' '}
+          Password: <br />
           <input
             type="password"
             onChange={e => setPassword(e.target.value)}
@@ -73,7 +73,7 @@ function SignupFormPage() {
         </label>
         <br />
         <label>
-          Confirm Password: {' '}
+          Confirm Password: <br />
           <input
             type="password"
             onChange={e => setConfirmPassword(e.target.value)}
