@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  color:aliceblue
 }
 
 .profile-icon-outer-div {
@@ -30,4 +31,10 @@
 .sign-up-button {
   background-color: rgba(0,0,0,0);
   border-radius: 10px;
+}
+
+.logout-button {
+  background-color: rgba(0,0,0,0);
+  border-radius: 10px;
+  color: aliceblue
 }

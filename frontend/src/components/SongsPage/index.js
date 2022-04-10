@@ -42,6 +42,8 @@ function SongsPage() {
           ))}
         </ul>
       )}
+      <br />
+      <br />
       <Footer />
     </div>
   );

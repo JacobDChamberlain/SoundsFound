@@ -73,7 +73,13 @@ function IndividualSongPage() {
           </ul>
         )}
       </div>
-
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <Footer />
     </div>
   );
