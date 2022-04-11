@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './LoginForm.css';
 
@@ -39,6 +38,7 @@ function LoginForm() {
             value={credential}
             onChange={e => setCredential(e.target.value)}
             required
+            className='username-or-email-input'
           />
         </label>
         <br />
@@ -49,6 +49,7 @@ function LoginForm() {
             value={password}
             onChange={e => setPassword(e.target.value)}
             required
+            className='password-input'
           />
         </label>
         <br />

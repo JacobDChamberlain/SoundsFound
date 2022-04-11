@@ -38,3 +38,8 @@
   background-image: url(../../../public/images/andrea-de-santis-i2BcaGXomv0-unsplash.jpg);
   background-size: 140%;
 }
+
+input {
+  border-radius: 10px;
+  padding: 3px;
+}
