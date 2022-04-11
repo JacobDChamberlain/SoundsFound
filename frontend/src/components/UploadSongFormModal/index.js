@@ -7,16 +7,16 @@ function UploadSongFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
-    <div className="upload-icon-outer-div">
-      <MdFileUpload onClick={() => setShowModal(true)}>Upload</MdFileUpload>
+    <div className="upload-modal">
+      <div className="upload-icon-outer-div">
+        <MdFileUpload onClick={() => setShowModal(true)}>Upload</MdFileUpload>
+      </div>
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <UploadSongForm closeModal={setShowModal} />
+          </Modal>
+        )}
     </div>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <UploadSongForm closeModal={setShowModal} />
-        </Modal>
-      )}
-    </>
   );
 }
 

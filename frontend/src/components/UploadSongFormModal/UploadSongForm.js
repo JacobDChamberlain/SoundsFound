@@ -17,6 +17,9 @@ function UploadSongForm({ closeModal }) {
   useEffect(() => {
     const errors = [];
     if (url.length < 1) errors.push("Please enter a url");
+    if (!url.includes('http')) errors.push("Please provide a valid url.");
+    if (!url.includes('.mp3')) errors.push("Url must lead to mp3 file.");
+    if (title.length < 1) errors.push("Please enter a song title.");
     if (title.length > 150) errors.push("Title must be under 150 characters");
     setErrors(errors);
   }, [url, title]);
@@ -62,6 +65,7 @@ function UploadSongForm({ closeModal }) {
           />
         </label>
         <button
+          hidden={errors.length > 0 ? true : false}
           type="submit"
           className="upload-song-button"
         >

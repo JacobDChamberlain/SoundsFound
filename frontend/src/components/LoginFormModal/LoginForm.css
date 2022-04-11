@@ -32,4 +32,6 @@
 .login-form-modal-container {
   background-image: url(../../../public/images/deathmetalalbumartcollage.jpeg);
   background-position: bottom;
+  border-radius: 20px;
+  padding: 20px;
 }

@@ -9,6 +9,8 @@
   font-family: interstate, sans-serif;
   font-style: italicnormal;
   color: aliceblue;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .edit-song-button {

@@ -9,6 +9,8 @@
   align-items: center;
   font-family: interstate, sans-serif;
   font-style: italicnormal;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .upload-icon-outer-div {
@@ -23,4 +25,8 @@
 .upload-h1 {
   background-color: rgba(206,234,245,0.7);
   box-shadow: 0px 5px 5px white;
+}
+
+.upload-modal {
+  border-radius: 10px;
 }
