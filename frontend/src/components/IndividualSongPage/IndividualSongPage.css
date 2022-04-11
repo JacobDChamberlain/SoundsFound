@@ -42,3 +42,7 @@
   border-radius: 10px;
   color:aliceblue
 }
+
+.individual-comment-li:hover {
+  background-color: rgba(0,0,0,0.6);
+}
