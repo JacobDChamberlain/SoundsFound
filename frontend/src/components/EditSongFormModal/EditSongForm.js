@@ -44,7 +44,7 @@ function EditSongForm({ song, closeModal }) {
       className="edit-song-form"
       >
         <label>
-          Title: <br /><br />
+          Title: <br />
           <input
             type="text"
             onChange={e => setTitle(e.target.value)}
