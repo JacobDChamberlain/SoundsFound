@@ -35,7 +35,7 @@ function EditSongForm({ song, closeModal }) {
 
   return (
     <div className='edit-song-div'>
-      <h1>Need to change the title of {song.title}?</h1>
+      <h1 className='edit-song-h1'>Need to change the title of {song.title}?</h1>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
@@ -50,11 +50,13 @@ function EditSongForm({ song, closeModal }) {
             onChange={e => setTitle(e.target.value)}
             value={title}
             required
+            className='title-input'
           />
         </label>
         <br />
         <br />
         <button
+          hidden={errors.length > 0 ? true : false}
           type="submit"
           className="edit-song-button"
         >

@@ -1,6 +1,8 @@
 .edit-song-div {
   background-color: rgba(206,234,245,96);
-  background-image: url(../../../public/images/editsongmodalbackground.png);
+  background-image: url(../../../public/images/editsongbg.webp);
+  background-size: 100%;
+  background-position: bottom;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,4 +25,14 @@
 .edit-song-form {
   text-align: center;
   color: aliceblue;
+}
+
+.edit-song-h1 {
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 10px;
+}
+
+input {
+  border-radius: 10px;
+  padding: 3px;
 }

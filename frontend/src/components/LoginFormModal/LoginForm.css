@@ -35,3 +35,8 @@
   border-radius: 20px;
   padding: 20px;
 }
+
+input {
+  border-radius: 10px;
+  padding: 3px;
+}
