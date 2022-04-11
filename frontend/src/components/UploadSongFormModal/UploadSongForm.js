@@ -69,6 +69,7 @@ function UploadSongForm({ closeModal }) {
         </label>
         <button
           hidden={errors.length > 0 ? true : false}
+          disabled={errors.length > 0 ? true : false}
           type="submit"
           className="upload-song-button"
         >
