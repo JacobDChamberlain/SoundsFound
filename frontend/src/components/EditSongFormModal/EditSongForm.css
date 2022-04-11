@@ -1,5 +1,5 @@
 .edit-song-div {
-  background-color: rgba(206,234,245,96);
+  background-color: rgba(206,234,245,0);
   background-image: url(../../../public/images/editsongbg.webp);
   background-size: 100%;
   background-position: bottom;
