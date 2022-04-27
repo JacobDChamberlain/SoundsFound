@@ -1,7 +1,9 @@
 # [soundsfound]
 A place to find sounds.
 
-This is a MVP clone of [Soundcloud](http://soundcloud.com/). Check it out [live](http://soundsfound.herokuapp.com/)!
+Song Library app 
+
+Check it out [live](http://soundsfound.herokuapp.com/)!
 
 
 ## Index
