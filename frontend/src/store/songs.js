@@ -69,7 +69,13 @@ export const upload = (song) => async dispatch => {
   if (res.ok) {
     const song = await res.json();
     dispatch(uploadSong(song))
-    return song;
+  } else if (res.status < 500) {
+    const data = await res.json()
+    if (data.errors) {
+      return data.errors
+    }
+  } else {
+    return ['An error occured. Please try again.']
   }
 }
 
