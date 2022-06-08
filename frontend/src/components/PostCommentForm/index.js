@@ -16,10 +16,14 @@ function PostCommentForm({ song }) {
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
+
     const errors = [];
+
     if (body.length > 200) errors.push("Comment must be under 200 characters");
     // if (body.length === 0) errors.push("Comment cannot be empty")
+
     setErrors(errors);
+
   }, [body]);
 
   const handleSubmit = e => {

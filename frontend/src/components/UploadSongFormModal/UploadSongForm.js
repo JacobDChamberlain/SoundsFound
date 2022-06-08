@@ -13,35 +13,57 @@ function UploadSongForm({ closeModal }) {
   const [url, setUrl] = useState('');
   const [title, setTitle] = useState('');
   const [errors, setErrors] = useState([]);
+  const [showErrors, setShowErrors] = useState(false);
 
   useEffect(() => {
     const errors = [];
     if (url.length < 1) errors.push("Please enter a url");
-    if (!url.includes('http')) errors.push("Please provide a valid url.");
+    if (!url.includes('.com')) errors.push("Please provide a valid url.");
     if (!url.includes('.mp3')) errors.push("Url must lead to mp3 file.");
     if (title.length < 1) errors.push("Please enter a song title.");
     if (title.length > 150) errors.push("Title must be under 150 characters");
     setErrors(errors);
   }, [url, title]);
 
-  const handleUpload = e => {
-
+  const handleUpload = async e => {
     e.preventDefault();
 
     const song = { userId, url, title };
 
-    setErrors([]);
-    dispatch(songActions.upload(song));
+    // setErrors([]);
 
-    closeModal();
+    // return dispatch(songActions.upload(song))
+    //   .catch(async (res) => {
+    //     const data = await res.json();
+    //     if (data && data.errors) setErrors(data.errors)
+    //   })
+
+    if (errors.length === 0) {
+      const data = await dispatch(songActions.upload(song));
+
+      closeModal();
+
+      if (data) {
+        setErrors(data)
+
+        return
+      } else {
+        setShowErrors(false)
+      }
+    } else {
+      setShowErrors(true)
+    }
+    // dispatch(songActions.upload(song))
+
+    // closeModal();
   }
 
   return (
     <div className="upload-song-div">
       <h1 className='upload-h1'>Give us your tunes, brah</h1>
-      <ul className='errors-ul'>
+      {showErrors && <ul className='errors-ul'>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
+      </ul>}
       <form
       onSubmit={handleUpload}
       className="upload-song-form"
@@ -52,7 +74,6 @@ function UploadSongForm({ closeModal }) {
             type="text"
             onChange={e => setUrl(e.target.value)}
             value={url}
-            required
             className='url-input'
           />
         </label>
@@ -63,13 +84,12 @@ function UploadSongForm({ closeModal }) {
             type="text"
             onChange={e => setTitle(e.target.value)}
             value={title}
-            required
             className='title-input'
           />
         </label>
         <button
-          hidden={errors.length > 0 ? true : false}
-          disabled={errors.length > 0 ? true : false}
+          // hidden={errors.length > 0 ? true : false}
+          // disabled={errors.length > 0 ? true : false}
           type="submit"
           className="upload-song-button"
         >
