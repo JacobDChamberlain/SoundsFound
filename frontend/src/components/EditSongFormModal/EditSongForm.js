@@ -12,12 +12,13 @@ function EditSongForm({ song, closeModal }) {
   const userId = sessionUser.id;
   const url = song.url;
   const id = song.id;
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState(song.title);
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     const errors = [];
     if (title.length > 150) errors.push("Title must be under 150 characters");
+    if (title.length === 0) errors.push("Title cannot be empty")
     setErrors(errors);
   }, [title]);
 
@@ -36,7 +37,7 @@ function EditSongForm({ song, closeModal }) {
   return (
     <div className='edit-song-div'>
       <h1 className='edit-song-h1'>Need to change the title of {song.title}?</h1>
-      <ul>
+      <ul className='errors-ul'>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
       <form
@@ -49,7 +50,6 @@ function EditSongForm({ song, closeModal }) {
             type="text"
             onChange={e => setTitle(e.target.value)}
             value={title}
-            required
             className='title-input'
           />
         </label>
