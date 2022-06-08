@@ -18,6 +18,7 @@ function PostCommentForm({ song }) {
   useEffect(() => {
     const errors = [];
     if (body.length > 200) errors.push("Comment must be under 200 characters");
+    // if (body.length === 0) errors.push("Comment cannot be empty")
     setErrors(errors);
   }, [body]);
 
@@ -41,7 +42,7 @@ function PostCommentForm({ song }) {
         onSubmit={handleSubmit}
         className='post-comment-form'
       >
-        <ul>
+        <ul className='errors-ul'>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <textarea
