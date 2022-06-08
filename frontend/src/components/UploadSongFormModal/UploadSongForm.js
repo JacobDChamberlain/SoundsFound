@@ -39,7 +39,7 @@ function UploadSongForm({ closeModal }) {
   return (
     <div className="upload-song-div">
       <h1 className='upload-h1'>Give us your tunes, brah</h1>
-      <ul>
+      <ul className='errors-ul'>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
       <form

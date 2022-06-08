@@ -12,6 +12,7 @@
 .post-comment-form {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   font-family: interstate, sans-serif;
   font-style: italicnormal;
 }
@@ -20,4 +21,13 @@
   background-color: rgba(0,0,0,0.2);
   border-radius: 10px;
   color:aliceblue;
+  width: 100px;
+  align-self: center;
+}
+
+textarea {
+  width: 100px;
+  height: 50px;
+  align-self: center;
+  justify-self: center;
 }
