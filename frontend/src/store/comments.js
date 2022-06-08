@@ -46,10 +46,22 @@ export const post = (comment) => async dispatch => {
     body: JSON.stringify(comment)
   })
 
+  // if (res.ok) {
+  //   const comment = await res.json();
+  //   dispatch(postAComment(comment));
+  //   return comment
+  // }
+
   if (res.ok) {
     const comment = await res.json();
     dispatch(postAComment(comment));
-    return comment
+  } else if (res.status < 500) {
+    const data = await res.json()
+    if (data.errors) {
+      return data.errors
+    }
+  } else {
+    return ['Ohh nooo. Your head asplode.']
   }
 }
 

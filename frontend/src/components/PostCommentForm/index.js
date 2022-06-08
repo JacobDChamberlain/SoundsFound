@@ -30,13 +30,19 @@ function PostCommentForm({ song }) {
 
     e.preventDefault();
 
-    setErrors([]);
+    // setErrors([]);
+
+    // dispatch(commentActions.post(comment));
+
+    // setBody('');
 
     const comment = { userId, songId, body };
 
-    dispatch(commentActions.post(comment));
-
-    setBody('');
+    return dispatch(commentActions.post(comment))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors)
+      })
   }
 
   return (

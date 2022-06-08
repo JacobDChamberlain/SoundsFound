@@ -70,7 +70,8 @@ router.post('/', validateUploadSong, asyncHandler(async (req, res) => {
     userId, url, title
   });
 
-  return res.redirect(`${req.baseUrl}/${song.id}`);
+  // return res.redirect(`${req.baseUrl}/${song.id}`);
+  return res.json(song)
 }));
 
 
