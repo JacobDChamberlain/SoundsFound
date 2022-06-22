@@ -15,7 +15,7 @@
   background-color: darkslategray;
   background-image: url(../../../public/images/faders.webp);
   background-size: 100%;
-  background-position: ;
+  /* background-position: ; */
 }
 
 .demo-button {
@@ -36,5 +36,6 @@
 .logout-button {
   background-color: rgba(0,0,0,0);
   border-radius: 10px;
-  color: aliceblue
+  color: aliceblue;
+  cursor: pointer;
 }
