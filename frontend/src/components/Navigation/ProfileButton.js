@@ -34,7 +34,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <div className="profile-icon-outer-div" onClick={openMenu}>
-        <RiAliensFill />
+        <RiAliensFill className="icon-button" />
       </div>
       {showMenu && (
         <ul className="profile-dropdown">

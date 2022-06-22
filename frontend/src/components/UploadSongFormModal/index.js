@@ -9,7 +9,7 @@ function UploadSongFormModal() {
   return (
     <div className="upload-modal">
       <div className="upload-icon-outer-div">
-        <MdFileUpload onClick={() => setShowModal(true)}>Upload</MdFileUpload>
+        <MdFileUpload className="icon-button" onClick={() => setShowModal(true)}>Upload</MdFileUpload>
       </div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
