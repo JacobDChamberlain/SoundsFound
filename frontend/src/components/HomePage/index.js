@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { BsMusicNote } from 'react-icons/bs';
@@ -9,7 +9,7 @@ function HomePage() {
 
   const dispatch = useDispatch();
 
-  useState(() => {
+  useEffect(() => {
     dispatch(songActions.getAllSongs());
   }, [dispatch]);
 

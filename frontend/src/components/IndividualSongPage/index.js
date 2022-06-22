@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect, useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player/file';
@@ -15,7 +15,7 @@ function IndividualSongPage() {
 
   const {songId} = useParams();
 
-  useState(() => {
+  useEffect(() => {
     dispatch(songActions.getOneSong(songId));
     dispatch(commentActions.getComments(songId));
   }, [dispatch]);

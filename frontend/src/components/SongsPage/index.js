@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ReactPlayer from 'react-player/file';
@@ -11,7 +11,7 @@ function SongsPage() {
 
   const dispatch = useDispatch();
 
-  useState(() => {
+  useEffect(() => {
     dispatch(songActions.getAllSongs());
   }, [dispatch]);
 
